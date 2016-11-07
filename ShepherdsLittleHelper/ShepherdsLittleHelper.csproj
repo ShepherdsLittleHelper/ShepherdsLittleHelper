@@ -196,14 +196,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PetsController.cs" />
+    <Compile Include="Controllers\PetTasksController.cs" />
+    <Compile Include="Controllers\PetTypesController.cs" />
+    <Compile Include="Controllers\TaskTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Pet.cs" />
+    <Compile Include="Models\PetType.cs" />
+    <Compile Include="Models\PetTask.cs" />
+    <Compile Include="Models\TaskType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -265,6 +277,36 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\TaskTypes\Create.cshtml" />
+    <Content Include="Views\TaskTypes\Delete.cshtml" />
+    <Content Include="Views\TaskTypes\Details.cshtml" />
+    <Content Include="Views\TaskTypes\Edit.cshtml" />
+    <Content Include="Views\TaskTypes\Index.cshtml" />
+    <Content Include="Views\PetTypes\Create.cshtml" />
+    <Content Include="Views\PetTypes\Delete.cshtml" />
+    <Content Include="Views\PetTypes\Details.cshtml" />
+    <Content Include="Views\PetTypes\Edit.cshtml" />
+    <Content Include="Views\PetTypes\Index.cshtml" />
+    <Content Include="Views\Pets\Create.cshtml" />
+    <Content Include="Views\Pets\Delete.cshtml" />
+    <Content Include="Views\Pets\Details.cshtml" />
+    <Content Include="Views\Pets\Edit.cshtml" />
+    <Content Include="Views\Pets\Index.cshtml" />
+    <Content Include="Views\PetTasks\Create.cshtml" />
+    <Content Include="Views\PetTasks\Delete.cshtml" />
+    <Content Include="Views\PetTasks\Details.cshtml" />
+    <Content Include="Views\PetTasks\Edit.cshtml" />
+    <Content Include="Views\PetTasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

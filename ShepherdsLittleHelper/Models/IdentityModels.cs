@@ -29,5 +29,19 @@ namespace ShepherdsLittleHelper.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.Group> Groups { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.Location> Locations { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.TaskType> TaskTypes { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.PetType> PetTypes { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.Pet> Pets { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.PetTask> PetTasks { get; set; }
+
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

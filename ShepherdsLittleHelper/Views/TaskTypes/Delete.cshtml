@@ -1,0 +1,40 @@
+﻿@model ShepherdsLittleHelper.Models.TaskType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TaskType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskTypeNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskTypeNotes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
