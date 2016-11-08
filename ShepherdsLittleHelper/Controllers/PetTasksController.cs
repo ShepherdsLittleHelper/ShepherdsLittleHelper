@@ -39,7 +39,7 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: PetTasks/Create
         public ActionResult Create()
         {
-            ViewBag.ApplicationUserID = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email");
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
             ViewBag.PetID = new SelectList(db.Pets, "PetID", "PetName");
             ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName");
@@ -60,7 +60,7 @@ namespace ShepherdsLittleHelper.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ApplicationUserID = new SelectList(db.ApplicationUsers, "Id", "Email", petTask.ApplicationUserID);
+            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", petTask.ApplicationUserID);
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", petTask.LocationID);
             ViewBag.PetID = new SelectList(db.Pets, "PetID", "PetName", petTask.PetID);
             ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", petTask.TaskTypeID);
@@ -79,7 +79,7 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ApplicationUserID = new SelectList(db.ApplicationUsers, "Id", "Email", petTask.ApplicationUserID);
+            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", petTask.ApplicationUserID);
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", petTask.LocationID);
             ViewBag.PetID = new SelectList(db.Pets, "PetID", "PetName", petTask.PetID);
             ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", petTask.TaskTypeID);
@@ -99,7 +99,7 @@ namespace ShepherdsLittleHelper.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ApplicationUserID = new SelectList(db.ApplicationUsers, "Id", "Email", petTask.ApplicationUserID);
+            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", petTask.ApplicationUserID);
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", petTask.LocationID);
             ViewBag.PetID = new SelectList(db.Pets, "PetID", "PetName", petTask.PetID);
             ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", petTask.TaskTypeID);
