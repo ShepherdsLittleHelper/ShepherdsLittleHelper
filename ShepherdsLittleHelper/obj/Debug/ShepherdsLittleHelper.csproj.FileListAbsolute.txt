@@ -80,5 +80,6 @@ c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper
 c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.dll
 c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.pdb
-C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.AddManyToMany.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.ManyToMany.resources
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.csproj.GenerateResource.Cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.ChangedFrequencyToString.resources

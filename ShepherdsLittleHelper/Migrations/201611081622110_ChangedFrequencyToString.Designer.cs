@@ -7,13 +7,13 @@ namespace ShepherdsLittleHelper.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddManyToMany : IMigrationMetadata
+    public sealed partial class ChangedFrequencyToString : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddManyToMany));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedFrequencyToString));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611081423206_AddManyToMany"; }
+            get { return "201611081622110_ChangedFrequencyToString"; }
         }
         
         string IMigrationMetadata.Source
