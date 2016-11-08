@@ -12,7 +12,7 @@ namespace ShepherdsLittleHelper.Models
         [Key]
         public int TaskID { get; set; }
         public string TaskDescription { get; set; }
-        public double Frequency { get; set; }
+        public string Frequency { get; set; }
         public DateTime Deadline { get; set; }
         
         [ForeignKey("Location")]

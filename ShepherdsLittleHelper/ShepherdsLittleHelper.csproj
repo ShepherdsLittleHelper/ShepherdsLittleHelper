@@ -207,9 +207,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611081423206_AddManyToMany.cs" />
-    <Compile Include="Migrations\201611081423206_AddManyToMany.Designer.cs">
-      <DependentUpon>201611081423206_AddManyToMany.cs</DependentUpon>
+    <Compile Include="Migrations\201611081604140_ManyToMany.cs" />
+    <Compile Include="Migrations\201611081604140_ManyToMany.Designer.cs">
+      <DependentUpon>201611081604140_ManyToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611081622110_ChangedFrequencyToString.cs" />
+    <Compile Include="Migrations\201611081622110_ChangedFrequencyToString.Designer.cs">
+      <DependentUpon>201611081622110_ChangedFrequencyToString.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -325,8 +329,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611081423206_AddManyToMany.resx">
-      <DependentUpon>201611081423206_AddManyToMany.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611081604140_ManyToMany.resx">
+      <DependentUpon>201611081604140_ManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611081622110_ChangedFrequencyToString.resx">
+      <DependentUpon>201611081622110_ChangedFrequencyToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
