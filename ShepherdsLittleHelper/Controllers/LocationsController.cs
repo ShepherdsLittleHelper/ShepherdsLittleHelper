@@ -17,30 +17,42 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: Locations
         public ActionResult Index()
         {
-            var locations = db.Locations.Include(l => l.Group);
-            return View(locations.ToList());
+            if (Request.IsAuthenticated)
+            {
+                var locations = db.Locations.Include(l => l.Group);
+                return View(locations.ToList());
+            }
+            return Redirect("/Home/Index");
         }
 
         // GET: Locations/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Location location = db.Locations.Find(id);
+                if (location == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(location);
             }
-            Location location = db.Locations.Find(id);
-            if (location == null)
-            {
-                return HttpNotFound();
-            }
-            return View(location);
+            return RedirectToAction("/Index");
         }
 
         // GET: Locations/Create
         public ActionResult Create()
         {
-            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
+                return View();
+            }
+            return RedirectToAction("/Index");
         }
 
         // POST: Locations/Create
@@ -50,31 +62,39 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LocationID,LocationName,MaxOccupancy,LocationNotes,GroupID")] Location location)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Locations.Add(location);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Locations.Add(location);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
-            return View(location);
+                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                return View(location);
+            }
+            return RedirectToAction("/Index");
         }
 
         // GET: Locations/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Location location = db.Locations.Find(id);
+                if (location == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                return View(location);
             }
-            Location location = db.Locations.Find(id);
-            if (location == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
-            return View(location);
+            return RedirectToAction("/Index");
         }
 
         // POST: Locations/Edit/5
@@ -84,29 +104,37 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "LocationID,LocationName,MaxOccupancy,LocationNotes,GroupID")] Location location)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(location).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(location).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                return View(location);
             }
-            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
-            return View(location);
+            return RedirectToAction("/Index");
         }
 
         // GET: Locations/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Location location = db.Locations.Find(id);
+                if (location == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(location);
             }
-            Location location = db.Locations.Find(id);
-            if (location == null)
-            {
-                return HttpNotFound();
-            }
-            return View(location);
+            return RedirectToAction("/Index");
         }
 
         // POST: Locations/Delete/5
@@ -114,10 +142,14 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Location location = db.Locations.Find(id);
-            db.Locations.Remove(location);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                Location location = db.Locations.Find(id);
+                db.Locations.Remove(location);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("/Index");
         }
 
         protected override void Dispose(bool disposing)

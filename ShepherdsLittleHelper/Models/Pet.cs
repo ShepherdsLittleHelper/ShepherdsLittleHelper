@@ -13,7 +13,8 @@ namespace ShepherdsLittleHelper.Models
         public int PetID { get; set; }
         [Display(Name = "Name")]
         public string PetName { get; set; }
-        public char Gender { get; set; }
+        [StringLength(1)]
+        public string Gender { get; set; }
         public DateTime Birthday { get; set; }
         [Display(Name = "Weight (lbs)")]
         public double Weight { get; set; }

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -19,10 +21,12 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                var pets = db.Pets.Include(p => p.Location).Include(p => p.PetType);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var pets = UserPets(currentUser);
                 return View(pets.ToList());
             }
-            return View("Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: Pets/Details/5
@@ -155,6 +159,13 @@ namespace ShepherdsLittleHelper.Controllers
             return RedirectToAction("Index");
         }
 
+        public IEnumerable<Pet> UserPets(User currentUser)
+        {
+            var groupIds = currentUser.Groups.Select(g => g.GroupID);
+            IEnumerable<Pet> pets = db.Pets.Where(p => groupIds.Contains(p.Location.Group.GroupID)).AsEnumerable();
+            return pets;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -162,13 +173,6 @@ namespace ShepherdsLittleHelper.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public List<Pet> UserPets(User currentUser)
-        {
-            List<Pet> pets = new List<Pet>();
-
-            return pets;
         }
     }
 }

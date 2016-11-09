@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -17,28 +19,40 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            return View(db.Groups.ToList());
+            if (Request.IsAuthenticated)
+            {
+                return View(db.Groups.ToList());
+            }
+            return Redirect("/Home/Index");
         }
 
         // GET: Groups/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Group group = db.Groups.Find(id);
+                if (group == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(group);
             }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
+            return RedirectToAction("/Index");
         }
 
         // GET: Groups/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return View();
+            }
+            return RedirectToAction("/Index");
         }
 
         // POST: Groups/Create
@@ -48,29 +62,40 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GroupID,GroupName")] Group group)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Groups.Add(group);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                    User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                    db.Groups.Add(group);
+                    currentUser.Groups.Add(group);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(group);
+                return View(group);
+            }
+            return RedirectToAction("/Index");
         }
 
         // GET: Groups/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Group group = db.Groups.Find(id);
+                if (group == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(group);
             }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
+            return RedirectToAction("/Index");
         }
 
         // POST: Groups/Edit/5
@@ -80,28 +105,36 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GroupID,GroupName")] Group group)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(group).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(group).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(group);
             }
-            return View(group);
+            return RedirectToAction("/Index");
         }
 
         // GET: Groups/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Group group = db.Groups.Find(id);
+                if (group == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(group);
             }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
+            return RedirectToAction("/Index");
         }
 
         // POST: Groups/Delete/5
@@ -109,10 +142,14 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Group group = db.Groups.Find(id);
-            db.Groups.Remove(group);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                Group group = db.Groups.Find(id);
+                db.Groups.Remove(group);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("/Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -17,28 +17,41 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: PetTypes
         public ActionResult Index()
         {
-            return View(db.PetTypes.ToList());
+            if (Request.IsAuthenticated)
+            {
+               return View(db.PetTypes.ToList());
+            }
+            return Redirect("/Home/Index");
         }
+
 
         // GET: PetTypes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PetType petType = db.PetTypes.Find(id);
+                if (petType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(petType);
             }
-            PetType petType = db.PetTypes.Find(id);
-            if (petType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(petType);
+            return RedirectToAction("/Index");
         }
 
         // GET: PetTypes/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return View();
+            }
+            return RedirectToAction("/Index");
         }
 
         // POST: PetTypes/Create
@@ -48,29 +61,37 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PetTypeID,PetTypeDescription")] PetType petType)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.PetTypes.Add(petType);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.PetTypes.Add(petType);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(petType);
+                return View(petType);
+            }
+            return RedirectToAction("/Index");
         }
 
         // GET: PetTypes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PetType petType = db.PetTypes.Find(id);
+                if (petType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(petType);
             }
-            PetType petType = db.PetTypes.Find(id);
-            if (petType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(petType);
+            return RedirectToAction("/Index");
         }
 
         // POST: PetTypes/Edit/5
@@ -80,28 +101,36 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PetTypeID,PetTypeDescription")] PetType petType)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(petType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(petType).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(petType);
             }
-            return View(petType);
+            return RedirectToAction("/Index");
         }
 
         // GET: PetTypes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PetType petType = db.PetTypes.Find(id);
+                if (petType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(petType);
             }
-            PetType petType = db.PetTypes.Find(id);
-            if (petType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(petType);
+            return RedirectToAction("/Index");
         }
 
         // POST: PetTypes/Delete/5
@@ -109,10 +138,14 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PetType petType = db.PetTypes.Find(id);
-            db.PetTypes.Remove(petType);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                PetType petType = db.PetTypes.Find(id);
+                db.PetTypes.Remove(petType);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("/Index");
         }
 
         protected override void Dispose(bool disposing)
