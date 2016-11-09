@@ -21,7 +21,9 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                return View(db.Groups.ToList());
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                return View(currentUser.Groups.ToList());
             }
             return Redirect("/Home/Index");
         }
