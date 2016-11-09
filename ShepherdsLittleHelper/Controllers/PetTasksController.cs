@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -19,7 +21,9 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                var petTasks = db.PetTasks.Include(p => p.ApplicationUser).Include(p => p.Location).Include(p => p.Pet).Include(p => p.TaskType);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var petTasks = UserTasks(currentUser);
                 return View(petTasks.ToList());
             }
             return Redirect("/Home/Index");
@@ -162,6 +166,19 @@ namespace ShepherdsLittleHelper.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("/Index");
+        }
+
+        public IEnumerable<PetTask> UserTasks(User currentUser)
+        {
+            var groupIds = currentUser.Groups.Select(g => g.GroupID);
+            var pets = db.Pets.Where(p => groupIds.Contains(p.Location.Group.GroupID));
+            var petIDs = pets.Select(p => p.PetID);
+            var locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID));
+            var locationIDs = locations.Select(l => l.LocationID);
+            var petTasks = db.PetTasks.Where(t => petIDs.Contains(t.PetID));
+            var locationTasks = db.PetTasks.Where(t => locationIDs.Contains(t.LocationID));
+            IEnumerable<PetTask> userTasks = petTasks.Union(locationTasks).AsEnumerable();
+            return userTasks;
         }
 
         protected override void Dispose(bool disposing)
