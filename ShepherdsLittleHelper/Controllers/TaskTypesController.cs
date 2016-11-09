@@ -17,28 +17,42 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: TaskTypes
         public ActionResult Index()
         {
-            return View(db.TaskTypes.ToList());
+            if (Request.IsAuthenticated)
+            {
+                return View(db.TaskTypes.ToList());
+            }
+            return RedirectToAction("/Home/Index");
         }
 
         // GET: TaskTypes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TaskType taskType = db.TaskTypes.Find(id);
+                if (taskType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(taskType);
             }
-            TaskType taskType = db.TaskTypes.Find(id);
-            if (taskType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(taskType);
+            return RedirectToAction("/Index");
         }
 
         // GET: TaskTypes/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return View();
+            }
+            return RedirectToAction("/Index");
         }
 
         // POST: TaskTypes/Create
@@ -48,29 +62,37 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TaskID,TaskTypeName,TaskTypeNotes")] TaskType taskType)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.TaskTypes.Add(taskType);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.TaskTypes.Add(taskType);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(taskType);
+                return View(taskType);
+            }
+            return RedirectToAction("/Index");
         }
 
         // GET: TaskTypes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TaskType taskType = db.TaskTypes.Find(id);
+                if (taskType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(taskType);
             }
-            TaskType taskType = db.TaskTypes.Find(id);
-            if (taskType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(taskType);
+            return RedirectToAction("/Index");
         }
 
         // POST: TaskTypes/Edit/5
@@ -80,28 +102,36 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TaskID,TaskTypeName,TaskTypeNotes")] TaskType taskType)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(taskType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(taskType).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(taskType);
             }
-            return View(taskType);
+            return RedirectToAction("/Index");
         }
 
         // GET: TaskTypes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TaskType taskType = db.TaskTypes.Find(id);
+                if (taskType == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(taskType);
             }
-            TaskType taskType = db.TaskTypes.Find(id);
-            if (taskType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(taskType);
+            return RedirectToAction("/Index");
         }
 
         // POST: TaskTypes/Delete/5
@@ -109,10 +139,14 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TaskType taskType = db.TaskTypes.Find(id);
-            db.TaskTypes.Remove(taskType);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                TaskType taskType = db.TaskTypes.Find(id);
+                db.TaskTypes.Remove(taskType);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("/Index");
         }
 
         protected override void Dispose(bool disposing)
