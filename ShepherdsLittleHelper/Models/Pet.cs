@@ -12,7 +12,8 @@ namespace ShepherdsLittleHelper.Models
         [Key]
         public int PetID { get; set; }
         public string PetName { get; set; }
-        public char Gender { get; set; }
+        [StringLength(1)]
+        public string Gender { get; set; }
         public DateTime Birthday { get; set; }
         public double Weight { get; set; }
         public string PetNotes { get; set; }
