@@ -13,6 +13,11 @@ namespace ShepherdsLittleHelper.Controllers
             return View();
         }
 
+        public ActionResult Navigator()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
