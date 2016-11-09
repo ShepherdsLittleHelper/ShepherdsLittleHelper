@@ -17,31 +17,43 @@ namespace ShepherdsLittleHelper.Controllers
         // GET: Pets
         public ActionResult Index()
         {
-            var pets = db.Pets.Include(p => p.Location).Include(p => p.PetType);
-            return View(pets.ToList());
+            if (Request.IsAuthenticated)
+            {
+                var pets = db.Pets.Include(p => p.Location).Include(p => p.PetType);
+                return View(pets.ToList());
+            }
+            return RedirectToAction("/Home/Index");
         }
 
         // GET: Pets/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pet pet = db.Pets.Find(id);
+                if (pet == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(pet);
             }
-            Pet pet = db.Pets.Find(id);
-            if (pet == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pet);
+            return RedirectToAction("/Index");
         }
 
         // GET: Pets/Create
         public ActionResult Create()
         {
-            ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
-            ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription");
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
+                ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription");
+                return View();
+            }
+            return RedirectToAction("/Index");
         }
 
         // POST: Pets/Create
@@ -51,33 +63,41 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PetID,PetName,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Pets.Add(pet);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Pets.Add(pet);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
-            ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
-            return View(pet);
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+                return View(pet);
+            }
+            return RedirectToAction("/Index");
         }
 
         // GET: Pets/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pet pet = db.Pets.Find(id);
+                if (pet == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+                return View(pet);
             }
-            Pet pet = db.Pets.Find(id);
-            if (pet == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
-            ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
-            return View(pet);
+            return RedirectToAction("/Index");
         }
 
         // POST: Pets/Edit/5
@@ -87,41 +107,52 @@ namespace ShepherdsLittleHelper.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PetID,PetName,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(pet).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(pet).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+                return View(pet);
             }
-            ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
-            ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
-            return View(pet);
+            return RedirectToAction("/Index");
         }
 
         // GET: Pets/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pet pet = db.Pets.Find(id);
+                if (pet == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(pet);
             }
-            Pet pet = db.Pets.Find(id);
-            if (pet == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pet);
+            return RedirectToAction("/Index");
         }
-
         // POST: Pets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pet pet = db.Pets.Find(id);
-            db.Pets.Remove(pet);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                Pet pet = db.Pets.Find(id);
+                db.Pets.Remove(pet);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("/Index");
         }
 
         protected override void Dispose(bool disposing)
@@ -131,6 +162,13 @@ namespace ShepherdsLittleHelper.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public List<Pet> UserPets(User currentUser)
+        {
+            List<Pet> pets = new List<Pet>();
+
+            return pets;
         }
     }
 }

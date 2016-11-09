@@ -1,2 +1,1 @@
-﻿/App_Data/
-/v14/.suo
+﻿/v14/.suo
