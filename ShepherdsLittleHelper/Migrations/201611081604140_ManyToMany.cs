@@ -3,7 +3,7 @@ namespace ShepherdsLittleHelper.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddManyToMany : DbMigration
+    public partial class ManyToMany : DbMigration
     {
         public override void Up()
         {
