@@ -21,7 +21,7 @@ namespace ShepherdsLittleHelper.Controllers
             {
                return View(db.PetTypes.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
 

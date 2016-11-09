@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -21,7 +23,7 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 return View(db.Groups.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: Groups/Details/5
@@ -64,7 +66,10 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                    User currentUser = UserManager.FindById(User.Identity.GetUserId());
                     db.Groups.Add(group);
+                    currentUser.Groups.Add(group);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }

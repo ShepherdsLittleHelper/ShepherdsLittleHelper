@@ -22,7 +22,7 @@ namespace ShepherdsLittleHelper.Controllers
                 var petTasks = db.PetTasks.Include(p => p.ApplicationUser).Include(p => p.Location).Include(p => p.Pet).Include(p => p.TaskType);
                 return View(petTasks.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: PetTasks/Details/5

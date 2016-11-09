@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -19,10 +21,12 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                var pets = db.Pets.Include(p => p.Location).Include(p => p.PetType);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var pets = UserPets(currentUser);
                 return View(pets.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: Pets/Details/5
@@ -153,6 +157,12 @@ namespace ShepherdsLittleHelper.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("/Index");
+        }
+
+        public IQueryable<Pet> UserPets(User currentUser)
+        {
+            IQueryable<Pet> pets = db.Pets.Where(p => currentUser.Groups.Contains(p.Location.Group) == true);
+            return pets;
         }
 
         protected override void Dispose(bool disposing)

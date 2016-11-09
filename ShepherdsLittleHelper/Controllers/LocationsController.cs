@@ -22,7 +22,7 @@ namespace ShepherdsLittleHelper.Controllers
                 var locations = db.Locations.Include(l => l.Group);
                 return View(locations.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: Locations/Details/5

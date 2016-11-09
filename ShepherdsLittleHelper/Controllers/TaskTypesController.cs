@@ -21,7 +21,7 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 return View(db.TaskTypes.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return Redirect("/Home/Index");
         }
 
         // GET: TaskTypes/Details/5
