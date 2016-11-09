@@ -22,7 +22,7 @@ namespace ShepherdsLittleHelper.Controllers
                 var pets = db.Pets.Include(p => p.Location).Include(p => p.PetType);
                 return View(pets.ToList());
             }
-            return RedirectToAction("/Home/Index");
+            return View("Index");
         }
 
         // GET: Pets/Details/5
@@ -41,7 +41,7 @@ namespace ShepherdsLittleHelper.Controllers
                 }
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Create
@@ -53,7 +53,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription");
                 return View();
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // POST: Pets/Create
@@ -76,7 +76,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Edit/5
@@ -97,7 +97,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // POST: Pets/Edit/5
@@ -119,7 +119,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Delete/5
@@ -138,7 +138,7 @@ namespace ShepherdsLittleHelper.Controllers
                 }
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
         // POST: Pets/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -152,7 +152,7 @@ namespace ShepherdsLittleHelper.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

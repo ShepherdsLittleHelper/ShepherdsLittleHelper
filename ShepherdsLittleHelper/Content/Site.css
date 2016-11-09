@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ GENERATED CODE*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+#petPicture{
+    height:350px;
+    width:200px;
+}

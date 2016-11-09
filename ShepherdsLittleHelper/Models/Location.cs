@@ -11,8 +11,11 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int LocationID { get; set; }
+        [Display(Name ="Room?")]
         public string LocationName { get; set; }
+        [Display(Name = "Max occupancy")]
         public int MaxOccupancy { get; set; }
+        [Display(Name = "Key notes")]
         public string LocationNotes { get; set; }
 
         [ForeignKey("Group")]

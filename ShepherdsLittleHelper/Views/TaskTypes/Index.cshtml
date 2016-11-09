@@ -14,9 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TaskTypeName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.TaskTypeNotes)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -25,9 +25,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.TaskTypeName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.TaskTypeNotes)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TaskID }) |
             @Html.ActionLink("Details", "Details", new { id=item.TaskID }) |

@@ -11,6 +11,7 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int TaskID { get; set; }
+        [Display(Name = "Description")]
         public string TaskDescription { get; set; }
         public string Frequency { get; set; }
         public DateTime Deadline { get; set; }
