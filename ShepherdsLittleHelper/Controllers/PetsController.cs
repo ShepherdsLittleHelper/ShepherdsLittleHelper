@@ -65,7 +65,7 @@ namespace ShepherdsLittleHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PetID,PetName,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
+        public ActionResult Create([Bind(Include = "PetID,PetName,Gender,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
         {
             if (Request.IsAuthenticated)
             {
@@ -109,7 +109,7 @@ namespace ShepherdsLittleHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PetID,PetName,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
+        public ActionResult Edit([Bind(Include = "PetID,PetName,Gender,Birthday,Weight,PetNotes,ImageURL,LocationID,PetTypeID")] Pet pet)
         {
             if (Request.IsAuthenticated)
             {
