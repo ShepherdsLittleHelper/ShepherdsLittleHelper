@@ -159,9 +159,10 @@ namespace ShepherdsLittleHelper.Controllers
             return RedirectToAction("/Index");
         }
 
-        public IQueryable<Pet> UserPets(User currentUser)
+        public IEnumerable<Pet> UserPets(User currentUser)
         {
-            IQueryable<Pet> pets = db.Pets.Where(p => currentUser.Groups.Contains(p.Location.Group) == true);
+            var groupIds = currentUser.Groups.Select(g => g.GroupID);
+            IEnumerable<Pet> pets = db.Pets.Where(p => groupIds.Contains(p.Location.Group.GroupID)).AsEnumerable();
             return pets;
         }
 
