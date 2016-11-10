@@ -15,7 +15,11 @@ namespace ShepherdsLittleHelper.Controllers
 
         public ActionResult Navigator()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return View();
+            }
+            return Redirect("/Home/Index");
         }
 
         public ActionResult About()

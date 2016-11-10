@@ -7,13 +7,13 @@ namespace ShepherdsLittleHelper.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangedFrequencyToString : IMigrationMetadata
+    public sealed partial class buildDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedFrequencyToString));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(buildDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611081622110_ChangedFrequencyToString"; }
+            get { return "201611101832052_buildDB"; }
         }
         
         string IMigrationMetadata.Source
