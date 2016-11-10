@@ -45,7 +45,7 @@ namespace ShepherdsLittleHelper.Controllers
                 }
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Create
@@ -57,7 +57,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription");
                 return View();
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // POST: Pets/Create
@@ -80,7 +80,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Edit/5
@@ -101,7 +101,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // POST: Pets/Edit/5
@@ -123,7 +123,7 @@ namespace ShepherdsLittleHelper.Controllers
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         // GET: Pets/Delete/5
@@ -142,7 +142,7 @@ namespace ShepherdsLittleHelper.Controllers
                 }
                 return View(pet);
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
         // POST: Pets/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -156,7 +156,7 @@ namespace ShepherdsLittleHelper.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         public IEnumerable<Pet> UserPets(User currentUser)

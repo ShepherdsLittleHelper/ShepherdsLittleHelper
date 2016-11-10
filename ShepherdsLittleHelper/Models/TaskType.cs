@@ -10,7 +10,9 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int TaskID { get; set; }
+        [Display(Name = "Task")]
         public string TaskTypeName { get; set; }
+        [Display(Name = "Note")]
         public string TaskTypeNotes { get; set; }
 
     }

@@ -11,12 +11,18 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int PetID { get; set; }
+        [Display(Name = "Name")]
         public string PetName { get; set; }
         [StringLength(1)]
         public string Gender { get; set; }
+        //Trim time off date
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Birthday { get; set; }
+        [Display(Name = "Weight (lbs)")]
         public double Weight { get; set; }
+        [Display(Name = "Special notes")]
         public string PetNotes { get; set; }
+        [Display(Name = "Image URL")]
         public string ImageURL { get; set; }
 
         [ForeignKey("Location")]

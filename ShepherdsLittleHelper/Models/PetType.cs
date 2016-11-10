@@ -10,6 +10,7 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int PetTypeID { get; set; }
+        [Display(Name = "Species")]
         public string PetTypeDescription { get; set; }
 
     }
