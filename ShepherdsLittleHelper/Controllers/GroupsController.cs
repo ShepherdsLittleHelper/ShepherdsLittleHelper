@@ -46,6 +46,27 @@ namespace ShepherdsLittleHelper.Controllers
             }
             return RedirectToAction("/Index");
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(int? id, string email)
+        {
+            if (Request.IsAuthenticated)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Group group = db.Groups.Find(id);
+                if (group == null)
+                {
+                    return HttpNotFound();
+                }
+                User toAdd = db.Users.Where(u => u.Email == email).ToList()[0];
+                toAdd.Groups.Add(group);
+                return View(group);
+            }
+            return RedirectToAction("/Index");
+        }
 
         // GET: Groups/Create
         public ActionResult Create()
