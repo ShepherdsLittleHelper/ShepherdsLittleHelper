@@ -25,7 +25,7 @@
     @using (Html.BeginForm())
     {
         <input type="text" name="email" />
-        <input type="button" onclick="userAdded(@ViewBag.email)"/>
+        <input type="submit" onclick="userAdded(@ViewBag.email)"/>
     }
     <div id="userAddedMessage"></div>
 </div>
