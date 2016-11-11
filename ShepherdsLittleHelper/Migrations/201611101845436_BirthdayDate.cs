@@ -3,16 +3,16 @@ namespace ShepherdsLittleHelper.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ChangedFrequencyToString : DbMigration
+    public partial class BirthdayDate : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.PetTasks", "Frequency", c => c.String());
+            AddColumn("dbo.Pets", "Gender", c => c.String(maxLength: 1));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.PetTasks", "Frequency", c => c.Double(nullable: false));
+            DropColumn("dbo.Pets", "Gender");
         }
     }
 }
