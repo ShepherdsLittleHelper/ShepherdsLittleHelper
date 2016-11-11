@@ -19,12 +19,15 @@
         </dd>
 
     </dl>
-
+    <p>
+        Enter an email to add to group. 
+    </p>
     @using (Html.BeginForm())
     {
         <input type="text" name="email" />
-        <input type="submit" />
+        <input type="submit" onclick="userAdded(@ViewBag.email)"/>
     }
+    <div id="userAddedMessage"></div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GroupID }) |
