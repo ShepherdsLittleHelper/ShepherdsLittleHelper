@@ -42,6 +42,7 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
+                //Bring group's users to detail view
                 ViewBag.users = group.Users;
                 return View(group);
             }
@@ -71,6 +72,7 @@ namespace ShepherdsLittleHelper.Controllers
                     db.SaveChanges();
                     ViewBag.email = toAdd.Email;
                 }
+                //Make users visible on a POST to not throw errors
                 ViewBag.users = group.Users;
                 return View(group);
             }
