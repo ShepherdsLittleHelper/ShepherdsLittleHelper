@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <script src="~/Scripts/Scripts.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,18 +21,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-<<<<<<< HEAD
                     <li>@Html.ActionLink("Home", "Navigator", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-=======
                     <li>@Html.ActionLink("Group/Location", "Index", "Groups")</li>
                     <li>@Html.ActionLink("Rooms?", "Index", "Locations")</li>
                     <li>@Html.ActionLink("Type of pet", "Index", "PetTypes")</li>
                     <li>@Html.ActionLink("Task", "Index", "TaskTypes")</li>
                     <li>@Html.ActionLink("Pet", "Index", "Pets")</li>
                     <li>@Html.ActionLink("Pet task", "Index", "PetTasks")</li>
->>>>>>> Stable
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
