@@ -42,6 +42,7 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
+                ViewBag.users = group.Users;
                 return View(group);
             }
             return RedirectToAction("/Index");
@@ -70,6 +71,7 @@ namespace ShepherdsLittleHelper.Controllers
                     db.SaveChanges();
                     ViewBag.email = toAdd.Email;
                 }
+                ViewBag.users = group.Users;
                 return View(group);
             }
             return RedirectToAction("/Index");
