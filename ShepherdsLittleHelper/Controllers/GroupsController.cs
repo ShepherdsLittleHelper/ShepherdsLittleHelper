@@ -47,7 +47,8 @@ namespace ShepherdsLittleHelper.Controllers
             return RedirectToAction("/Index");
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //suspect this is causing errors, comment it out for now
+        //[ValidateAntiForgeryToken]
         public ActionResult Details(int? id, string email)
         {
             if (Request.IsAuthenticated)
@@ -61,8 +62,9 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                User toAdd = db.Users.Where(u => u.Email == email).ToList()[0];
+                User toAdd = db.Users.Where(u => u.Email.ToLower() == email.ToLower()).ToList()[0];
                 toAdd.Groups.Add(group);
+                db.SaveChanges();
                 return View(group);
             }
             return RedirectToAction("/Index");
