@@ -34,9 +34,21 @@ namespace ShepherdsLittleHelper.Models
         public virtual PetType PetType { get; set; }
 
         //Calcualte age from DOB
-        public double Age
+        public int AgeYears
         {
             get { return (DateTime.Now - this.Birthday).Days/ 365; }
+            set { }
+        }
+
+        public int AgeMonths
+        {
+            get { return ((DateTime.Now - this.Birthday).Days % 365) / 12; }
+            set { }
+        }
+
+        public string Age
+        {
+            get { return this.AgeYears.ToString() + " years " + this.AgeMonths.ToString() + " months"; }
             set { }
         }
 
