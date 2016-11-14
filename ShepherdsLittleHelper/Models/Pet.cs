@@ -42,7 +42,22 @@ namespace ShepherdsLittleHelper.Models
 
         public int AgeMonths
         {
-            get { return ((DateTime.Now - this.Birthday).Days % 365) / 12; }
+            get {
+                //get the amount of months in the age
+                DateTime today = DateTime.Today;
+
+                int months = today.Month - this.Birthday.Month;
+
+                if (today.Day < this.Birthday.Day)
+                {
+                    months--;
+                }
+
+                if (months < 0)
+                {
+                    months += 12;
+                }
+                return months; }
             set { }
         }
 
