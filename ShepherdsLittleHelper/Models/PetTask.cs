@@ -18,7 +18,7 @@ namespace ShepherdsLittleHelper.Models
         public bool IsDone { get; set; }
         
         [ForeignKey("Location")]
-        public int LocationID { get; set; }
+        public int? LocationID { get; set; }
         public virtual Location Location { get; set; }
 
         [ForeignKey("Pet")]

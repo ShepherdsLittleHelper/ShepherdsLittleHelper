@@ -67,7 +67,7 @@ namespace ShepherdsLittleHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TaskID,TaskDescription,Frequency,Deadline,LocationID,PetID,TaskTypeID,ApplicationUserID")] PetTask petTask)
+        public ActionResult Create([Bind(Include = "TaskID,TaskDescription,Frequency,Deadline,PetID,TaskTypeID,ApplicationUserID")] PetTask petTask)
         {
             if (Request.IsAuthenticated)
             {
@@ -115,7 +115,7 @@ namespace ShepherdsLittleHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TaskID,TaskDescription,Frequency,Deadline,LocationID,PetID,TaskTypeID,ApplicationUserID")] PetTask petTask)
+        public ActionResult Edit([Bind(Include = "TaskID,TaskDescription,Frequency,Deadline,PetID,TaskTypeID,ApplicationUserID")] PetTask petTask)
         {
             if (Request.IsAuthenticated)
             {
@@ -173,11 +173,8 @@ namespace ShepherdsLittleHelper.Controllers
             var groupIds = currentUser.Groups.Select(g => g.GroupID);
             var pets = db.Pets.Where(p => groupIds.Contains(p.Location.Group.GroupID));
             var petIDs = pets.Select(p => p.PetID);
-            var locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID));
-            var locationIDs = locations.Select(l => l.LocationID);
             var petTasks = db.PetTasks.Where(t => petIDs.Contains(t.PetID));
-            var locationTasks = db.PetTasks.Where(t => locationIDs.Contains(t.LocationID));
-            IEnumerable<PetTask> userTasks = petTasks.Union(locationTasks).AsEnumerable();
+            IEnumerable<PetTask> userTasks = petTasks.AsEnumerable();
             return userTasks;
         }
 
