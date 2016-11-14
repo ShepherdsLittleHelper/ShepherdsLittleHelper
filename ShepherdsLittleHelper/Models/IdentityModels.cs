@@ -61,6 +61,8 @@ namespace ShepherdsLittleHelper.Models
 
         public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.PetTask> PetTasks { get; set; }
 
+        public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.LocationTask> LocationTasks { get; set; }
+
         //public System.Data.Entity.DbSet<ShepherdsLittleHelper.Models.User> Users { get; set; }
     }
 }
