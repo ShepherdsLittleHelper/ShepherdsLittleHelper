@@ -16,7 +16,7 @@ namespace ShepherdsLittleHelper.Models
         [StringLength(1)]
         public string Gender { get; set; }
         //Trim time off date
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Birthday { get; set; }
         [Display(Name = "Weight (lbs)")]
         public double Weight { get; set; }
@@ -32,6 +32,25 @@ namespace ShepherdsLittleHelper.Models
         [ForeignKey("PetType")]
         public int PetTypeID { get; set; }
         public virtual PetType PetType { get; set; }
+
+        //Calcualte age from DOB
+        public int AgeYears
+        {
+            get { return (DateTime.Now - this.Birthday).Days/ 365; }
+            set { }
+        }
+
+        public int AgeMonths
+        {
+            get { return ((DateTime.Now - this.Birthday).Days % 365) / 30; }
+            set { }
+        }
+
+        public string Age
+        {
+            get { return this.AgeYears.ToString() + " years " + this.AgeMonths.ToString() + " months"; }
+            set { }
+        }
 
     }
 }

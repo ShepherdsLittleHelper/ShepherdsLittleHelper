@@ -53,7 +53,11 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName");
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription");
                 return View();
             }
@@ -76,7 +80,11 @@ namespace ShepherdsLittleHelper.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
@@ -97,7 +105,11 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }
@@ -119,7 +131,11 @@ namespace ShepherdsLittleHelper.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", pet.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
                 return View(pet);
             }

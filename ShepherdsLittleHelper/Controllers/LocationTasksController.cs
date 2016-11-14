@@ -12,24 +12,25 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShepherdsLittleHelper.Controllers
 {
-    public class LocationsController : Controller
+    public class LocationTasksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Locations
+        // GET: LocationTasks
         public ActionResult Index()
         {
+
             if (Request.IsAuthenticated)
             {
                 UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
                 User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var locations = UserLocations(currentUser);
-                return View(locations.ToList());
+                var locationTaskEnum = UserTasks(currentUser);
+                return View(locationTaskEnum.ToList());
             }
             return Redirect("/Home/Index");
         }
 
-        // GET: Locations/Details/5
+        // GET: LocationTasks/Details/5
         public ActionResult Details(int? id)
         {
             if (Request.IsAuthenticated)
@@ -38,58 +39,54 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                Location location = db.Locations.Find(id);
-                if (location == null)
+                LocationTask locationTask = db.LocationTasks.Find(id);
+                if (locationTask == null)
                 {
                     return HttpNotFound();
                 }
-                return View(location);
+                return View(locationTask);
             }
             return RedirectToAction("/Index");
         }
 
-        // GET: Locations/Create
+        // GET: LocationTasks/Create
         public ActionResult Create()
         {
             if (Request.IsAuthenticated)
             {
-                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
-                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName");
+                ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email");
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
+                ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName");
                 return View();
             }
             return RedirectToAction("/Index");
         }
 
-        // POST: Locations/Create
+        // POST: LocationTasks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LocationID,LocationName,MaxOccupancy,LocationNotes,GroupID")] Location location)
+        public ActionResult Create([Bind(Include = "L_TaskID,TaskDescription,Frequency,Deadline,IsDone,LocationID,TaskTypeID,ApplicationUserID")] LocationTask locationTask)
         {
             if (Request.IsAuthenticated)
             {
                 if (ModelState.IsValid)
                 {
-                    db.Locations.Add(location);
+                    db.LocationTasks.Add(locationTask);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
-                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
-                return View(location);
+                ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
+                return View(locationTask);
             }
             return RedirectToAction("/Index");
         }
 
-        // GET: Locations/Edit/5
+        // GET: LocationTasks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (Request.IsAuthenticated)
@@ -98,47 +95,43 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                Location location = db.Locations.Find(id);
-                if (location == null)
+                LocationTask locationTask = db.LocationTasks.Find(id);
+                if (locationTask == null)
                 {
                     return HttpNotFound();
                 }
-                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
-                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
-                return View(location);
+                ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
+                return View(locationTask);
             }
             return RedirectToAction("/Index");
         }
 
-        // POST: Locations/Edit/5
+        // POST: LocationTasks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LocationID,LocationName,MaxOccupancy,LocationNotes,GroupID")] Location location)
+        public ActionResult Edit([Bind(Include = "L_TaskID,TaskDescription,Frequency,Deadline,IsDone,LocationID,TaskTypeID,ApplicationUserID")] LocationTask locationTask)
         {
             if (Request.IsAuthenticated)
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(location).State = EntityState.Modified;
+                    db.Entry(locationTask).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
-                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
-                return View(location);
+                ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
+                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
+                return View(locationTask);
             }
             return RedirectToAction("/Index");
         }
 
-        // GET: Locations/Delete/5
+        // GET: LocationTasks/Delete/5
         public ActionResult Delete(int? id)
         {
             if (Request.IsAuthenticated)
@@ -147,36 +140,39 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                Location location = db.Locations.Find(id);
-                if (location == null)
+                LocationTask locationTask = db.LocationTasks.Find(id);
+                if (locationTask == null)
                 {
                     return HttpNotFound();
                 }
-                return View(location);
+                return View(locationTask);
             }
             return RedirectToAction("/Index");
         }
 
-        // POST: Locations/Delete/5
+        // POST: LocationTasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             if (Request.IsAuthenticated)
             {
-                Location location = db.Locations.Find(id);
-                db.Locations.Remove(location);
+                LocationTask locationTask = db.LocationTasks.Find(id);
+                db.LocationTasks.Remove(locationTask);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return RedirectToAction("/Index");
         }
 
-        public IEnumerable<Location> UserLocations(User currentUser)
+        public IEnumerable<LocationTask> UserTasks(User currentUser)
         {
             var groupIds = currentUser.Groups.Select(g => g.GroupID);
-            IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
-            return locations;
+            var locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID));
+            var locationIDs = locations.Select(l => l.LocationID);
+            var locationTasks = db.LocationTasks.Where(t => locationIDs.Contains(t.LocationID));
+            IEnumerable<LocationTask> userTasks = locationTasks.AsEnumerable();
+            return userTasks;
         }
 
         protected override void Dispose(bool disposing)

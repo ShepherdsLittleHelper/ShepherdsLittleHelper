@@ -19,15 +19,29 @@
         </dd>
 
     </dl>
-    <p>
-        Enter an email to add to group. 
-    </p>
-    @using (Html.BeginForm())
-    {
-        <input type="text" name="email" />
-        <input type="submit" onclick="userAdded(@ViewBag.email)"/>
-    }
-    <div id="userAddedMessage"></div>
+    @* Here we list the users in the group by email *@
+        @foreach (var user in ViewBag.users)
+        {
+            <dl class="dl-horizontal">
+                <dd>
+                    @user.UserName
+                </dd>
+                <dd>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.GroupID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupID })*@
+                </dd>
+                </dl>
+        }
+        <p>
+            Enter an email to add to group.
+        </p>
+        @using (Html.BeginForm())
+        {
+            <input type="text" name="email" />
+            <input type="submit" onclick="userAdded(@ViewBag.email)" />
+        }
+        <div id="userAddedMessage"></div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GroupID }) |
