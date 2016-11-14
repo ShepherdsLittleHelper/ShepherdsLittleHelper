@@ -45,7 +45,7 @@
     <tr>
         <td>
             @*@Html.DisplayFor(modelItem => item.ImageURL)*@
-            <img src="@Url.Content(item.ImageURL)" id="petPicture" />
+            <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Location.LocationName)
