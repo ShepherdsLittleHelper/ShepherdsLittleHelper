@@ -53,7 +53,11 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
+                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName");
                 return View();
             }
             return RedirectToAction("/Index");
@@ -75,7 +79,11 @@ namespace ShepherdsLittleHelper.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
+                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
                 return View(location);
             }
             return RedirectToAction("/Index");
@@ -95,7 +103,11 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
+                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
                 return View(location);
             }
             return RedirectToAction("/Index");
@@ -116,7 +128,11 @@ namespace ShepherdsLittleHelper.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", location.GroupID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Group> groups = db.Groups.Where(g => groupIds.Contains(g.GroupID)).AsEnumerable();
+                ViewBag.GroupID = new SelectList(groups, "GroupID", "GroupName", location.GroupID);
                 return View(location);
             }
             return RedirectToAction("/Index");
