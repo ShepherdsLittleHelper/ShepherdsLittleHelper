@@ -94,6 +94,31 @@ namespace ShepherdsLittleHelper.Controllers
             return RedirectToAction("/Index");
         }
 
+        // GET: Items/Edit
+        public ActionResult ToggleDone(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LocationTask item = db.LocationTasks.Find(id);
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+            if (item.IsDone)
+            {
+                item.IsDone = false;
+            }
+            else if (!item.IsDone)
+            {
+                item.IsDone = true;
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         // GET: LocationTasks/Edit/5
         public ActionResult Edit(int? id)
         {
