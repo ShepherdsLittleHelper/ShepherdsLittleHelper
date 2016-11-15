@@ -71,7 +71,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImageURL)
+            <img src="@Html.DisplayFor(model => model.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+
         </dd>
 
     </dl>
