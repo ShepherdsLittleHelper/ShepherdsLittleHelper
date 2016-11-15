@@ -45,7 +45,12 @@
     <tr>
         <td>
             @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+<<<<<<< HEAD
             <img src="@Url.Content(item.ImageURL)" onerror="this.src = '/Images/file.jpg'" id="petPicture" />
+=======
+            @*Use default image if picture not available*@
+            <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+>>>>>>> Stable
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Location.LocationName)
