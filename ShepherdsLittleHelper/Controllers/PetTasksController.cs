@@ -26,9 +26,10 @@ namespace ShepherdsLittleHelper.Controllers
                 var petTasks = UserTasks(currentUser);
                 return View(petTasks.ToList());
             }
+
             return Redirect("/Home/Index");
         }
-
+        
         // GET: PetTasks/Details/5
         public ActionResult Details(int? id)
         {
@@ -124,6 +125,30 @@ namespace ShepherdsLittleHelper.Controllers
             }
             return RedirectToAction("/Index");
         }
+        public ActionResult ToggleDone(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PetTask item = db.PetTasks.Find(id);
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+            if (item.IsDone)
+            {
+                item.IsDone = false;
+            }
+            else if (!item.IsDone)
+            {
+                item.IsDone = true;
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
         // POST: PetTasks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

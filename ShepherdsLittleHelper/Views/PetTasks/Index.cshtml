@@ -32,6 +32,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Deadline)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDone)
+
+        </th>
         <th></th>
     </tr>
 
@@ -59,6 +63,18 @@
             @Html.DisplayFor(modelItem => item.Deadline)
         </td>
         <td>
+            <a href="@Url.Action("ToggleDone", new {id=item.TaskID})">
+                @if (item.IsDone)
+                {
+                    <span class="glyphicon glyphicon-check"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-unchecked"></span>
+                }
+            </a>
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TaskID }) |
             @Html.ActionLink("Details", "Details", new { id=item.TaskID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.TaskID })
@@ -67,3 +83,6 @@
 }
 
 </table>
+
+
+
