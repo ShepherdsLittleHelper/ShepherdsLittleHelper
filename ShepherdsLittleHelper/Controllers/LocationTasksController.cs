@@ -55,7 +55,11 @@ namespace ShepherdsLittleHelper.Controllers
             if (Request.IsAuthenticated)
             {
                 ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email");
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName");
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName");
                 return View();
             }
@@ -79,7 +83,11 @@ namespace ShepherdsLittleHelper.Controllers
                 }
 
                 ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName");
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
                 return View(locationTask);
             }
@@ -101,7 +109,11 @@ namespace ShepherdsLittleHelper.Controllers
                     return HttpNotFound();
                 }
                 ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName");
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
                 return View(locationTask);
             }
@@ -124,7 +136,11 @@ namespace ShepherdsLittleHelper.Controllers
                     return RedirectToAction("Index");
                 }
                 ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "Email", locationTask.ApplicationUserID);
-                ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.GroupID)).AsEnumerable();
+                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName"); ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", locationTask.LocationID);
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
                 return View(locationTask);
             }
