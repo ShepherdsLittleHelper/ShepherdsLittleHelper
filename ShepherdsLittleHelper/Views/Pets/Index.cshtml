@@ -45,6 +45,7 @@
     <tr>
         <td>
             @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+            @*Use default image if picture not available*@
             <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
         </td>
         <td>
