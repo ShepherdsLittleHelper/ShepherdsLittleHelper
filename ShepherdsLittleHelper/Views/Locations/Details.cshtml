@@ -43,6 +43,14 @@
         </dd>
 
     </dl>
+    @foreach (var pet in ViewBag.pets)
+    {
+        <dl class="dl-horizontal">
+            <dd>
+                <a href="/Pets/Details/@pet.PetID">@pet.PetName</a>
+            </dd>
+        </dl>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.LocationID }) |
