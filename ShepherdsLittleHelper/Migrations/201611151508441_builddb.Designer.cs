@@ -7,13 +7,13 @@ namespace ShepherdsLittleHelper.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class BirthdayDate : IMigrationMetadata
+    public sealed partial class builddb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BirthdayDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(builddb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611101845436_BirthdayDate"; }
+            get { return "201611151508441_builddb"; }
         }
         
         string IMigrationMetadata.Source

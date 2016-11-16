@@ -199,6 +199,7 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\LocationTasksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PetsController.cs" />
     <Compile Include="Controllers\PetTasksController.cs" />
@@ -207,15 +208,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611101832052_buildDB.cs" />
-    <Compile Include="Migrations\201611101832052_buildDB.Designer.cs">
-      <DependentUpon>201611101832052_buildDB.cs</DependentUpon>
+    <Compile Include="Migrations\201611151508441_builddb.cs" />
+    <Compile Include="Migrations\201611151508441_builddb.Designer.cs">
+      <DependentUpon>201611151508441_builddb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationTask.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\PetType.cs" />
@@ -237,6 +239,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\file.jpg" />
+    <Content Include="Images\Molly.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -319,6 +323,11 @@
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
     <Content Include="Views\Home\Navigator.cshtml" />
+    <Content Include="Views\LocationTasks\Create.cshtml" />
+    <Content Include="Views\LocationTasks\Delete.cshtml" />
+    <Content Include="Views\LocationTasks\Details.cshtml" />
+    <Content Include="Views\LocationTasks\Edit.cshtml" />
+    <Content Include="Views\LocationTasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,8 +341,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611101832052_buildDB.resx">
-      <DependentUpon>201611101832052_buildDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611151508441_builddb.resx">
+      <DependentUpon>201611151508441_builddb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
