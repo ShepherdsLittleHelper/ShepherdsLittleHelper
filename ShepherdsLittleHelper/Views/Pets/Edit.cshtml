@@ -37,8 +37,8 @@
             @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*Calendar dropdown*@
-                <input type="date" name="Birthday" />
-                @*@Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*<input type="date" name="Birthday" />*@
+                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
             </div>
         </div>

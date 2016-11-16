@@ -23,9 +23,11 @@
             @Html.DisplayFor(modelItem => item.GroupName)
         </td>
         <td>
+            @Html.ActionLink("Add location for group", "Index", "Locations") |
             @Html.ActionLink("Edit", "Edit", new { id=item.GroupID }) |
             @Html.ActionLink("Details", "Details", new { id=item.GroupID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.GroupID })
+
         </td>
     </tr>
 }

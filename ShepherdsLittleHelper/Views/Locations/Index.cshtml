@@ -41,6 +41,8 @@
             @Html.DisplayFor(modelItem => item.LocationNotes)
         </td>
         <td>
+            @Html.ActionLink("View pets", "Index", "Pets") |
+            @Html.ActionLink("Location task", "Create", "LocationTasks") |
             @Html.ActionLink("Edit", "Edit", new { id=item.LocationID }) |
             @Html.ActionLink("Details", "Details", new { id=item.LocationID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.LocationID })
