@@ -4,6 +4,16 @@
     ViewBag.Title = "Index";
 }
 
+
+@* 
+-remove species from index page
+-fix javascript so that input is still stored (user friendlyness)
+
+
+    
+    
+    
+    *@
 <h2>Index</h2>
 
 <p>
@@ -40,8 +50,11 @@
         </th>
         <th></th>
     </tr>
+    
 
 @foreach (var item in Model) {
+
+
     <tr>
         <td>
             @*@Html.DisplayFor(modelItem => item.ImageURL)*@
@@ -68,12 +81,13 @@
             @Html.DisplayFor(modelItem => item.Age)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Weight)
+            @Html.DisplayFor(modelItem => item.Weight) lb(s)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PetNotes)
         </td>
         <td>
+            @Html.ActionLink("Pet task?", "Index","PetTasks") |
             @Html.ActionLink("Edit", "Edit", new { id=item.PetID }) |
             @Html.ActionLink("Details", "Details", new { id=item.PetID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.PetID })
