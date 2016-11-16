@@ -76,6 +76,22 @@
         </dd>
 
     </dl>
+    @foreach (var petTask in ViewBag.petTasks)
+    {
+        <dl class="dl-horizontal">
+            <dd>
+                <a href="/PetTasks/Details/@petTask.TaskID">@petTask.TaskDescription</a>
+            </dd>
+        </dl>
+    }
+    @foreach (var locationTask in ViewBag.locationTasks)
+    {
+        <dl class="dl-horizontal">
+            <dd>
+                <a href="/PetTasks/Details/@locationTask.L_TaskID">@locationTask.TaskDescription</a>
+            </dd>
+        </dl>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PetID }) |
