@@ -108,10 +108,14 @@ namespace ShepherdsLittleHelper.Controllers
             }
             if (item.IsDone)
             {
+                item.ApplicationUser = null;
                 item.IsDone = false;
             }
             else if (!item.IsDone)
             {
+                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                item.ApplicationUser = currentUser;
                 item.IsDone = true;
             }
             db.SaveChanges();
