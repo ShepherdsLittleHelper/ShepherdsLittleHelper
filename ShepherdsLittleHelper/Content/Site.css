@@ -1,4 +1,12 @@
-﻿body {
+﻿/*COLORS
+    light blue = a1d7d7 and 161, 215, 215
+    light green = bfe1bf and 191, 225, 191
+    light grey = ededed and 237, 237, 237
+    yellow = fdd059 and 253, 208, 89
+    red = df5842 and 223, 88, 66
+
+*/
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
