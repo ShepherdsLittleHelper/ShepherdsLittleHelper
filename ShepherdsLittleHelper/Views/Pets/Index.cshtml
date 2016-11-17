@@ -19,8 +19,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+    @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.ImageURL)
         </th>
@@ -49,50 +48,41 @@
             @Html.DisplayNameFor(model => model.PetNotes)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
     
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+
+    <div class="col-md-4">
+
+        @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+        @*Use default image if picture not available*@
+        <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
 
 
-    <tr>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.ImageURL)*@
-            @*Use default image if picture not available*@
-            <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+        @Html.DisplayFor(modelItem => item.Location.LocationName)
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.LocationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PetType.PetTypeDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight) lb(s)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PetNotes)
-        </td>
-        <td>
-            @Html.ActionLink("Pet task?", "Index","PetTasks") |
-            @Html.ActionLink("Edit", "Edit", new { id=item.PetID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PetID })
-        </td>
-    </tr>
+        @Html.DisplayFor(modelItem => item.PetType.PetTypeDescription)
+
+        @Html.DisplayFor(modelItem => item.PetName)
+
+        @Html.DisplayFor(modelItem => item.Gender)
+
+        @Html.DisplayFor(modelItem => item.Birthday)
+
+        @Html.DisplayFor(modelItem => item.Age)
+
+        @Html.DisplayFor(modelItem => item.Weight)<span>lb(s)</span>
+
+        @Html.DisplayFor(modelItem => item.PetNotes)
+
+        @Html.ActionLink("Pet task?", "Index", "PetTasks")
+        @Html.ActionLink("Edit", "Edit", new { id = item.PetID })
+        @Html.ActionLink("Details", "Details", new { id = item.PetID })
+        @Html.ActionLink("Delete", "Delete", new { id = item.PetID })
+    </div>
+
 }
 
-</table>
+
