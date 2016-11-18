@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Task for your locations</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -36,29 +36,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var model in Model) {
     <tr>
         @*<td>
-            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            @Html.DisplayFor(modelmodel => model.ApplicationUser.Email)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.Location.LocationName)
+            @Html.DisplayFor(modelmodel => model.Location.LocationName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TaskType.TaskTypeName)
+            @Html.DisplayFor(modelmodel => model.TaskType.TaskTypeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TaskDescription)
+            @Html.DisplayFor(modelmodel => model.TaskDescription)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Frequency)
+            @Html.DisplayFor(modelmodel => model.Frequency)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Deadline)
+            @Html.DisplayFor(modelmodel => model.Deadline)
         </td>
         <td>
-            <a href="@Url.Action("ToggleDone", new {id=item.L_TaskID})">
-                @if (item.IsDone)
+            <a href="@Url.Action("ToggleDone", new {id=model.L_TaskID})">
+                @if (model.IsDone)
                 {
                     <span class="glyphicon glyphicon-check"></span>
                 }
@@ -70,9 +70,9 @@
             </a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.L_TaskID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.L_TaskID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.L_TaskID })
+            @Html.ActionLink("Edit", "Edit", new { id=model.L_TaskID }) |
+            @Html.ActionLink("Details", "Details", new { id=model.L_TaskID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=model.L_TaskID })
         </td>
     </tr>
 }

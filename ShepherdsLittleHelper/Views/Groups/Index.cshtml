@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ShepherdsLittleHelper.Models.Group>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Group Index";
 }
 
-<h2>Index</h2>
+<h2>Your groups</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,16 +17,16 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var model in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupName)
+            @Html.DisplayFor(modelmodel => model.GroupName)
         </td>
         <td>
             @Html.ActionLink("Add location for group", "Index", "Locations") |
-            @Html.ActionLink("Edit", "Edit", new { id=item.GroupID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GroupID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GroupID })
+            @Html.ActionLink("Edit", "Edit", new { id=model.GroupID }) |
+            @Html.ActionLink("Details", "Details", new { id=model.GroupID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=model.GroupID })
 
         </td>
     </tr>

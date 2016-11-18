@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Details for </h2>@Html.DisplayFor(model => model.PetName)
 
 <div>
-    <h4>Pet</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,13 +26,13 @@
             @Html.DisplayFor(model => model.PetType.PetTypeDescription)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.PetName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PetName)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Birthday)
@@ -56,8 +56,38 @@
 
         <dd>
             @Html.DisplayFor(model => model.Weight)
+            @if (Model.Weight <= 1)
+            {
+                <span>lb</span>
+            }
+            else
+            {
+                <span>lbs</span>
+            }
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+            @if(Model.Gender=="n")
+                {
+                    <span>Neutered</span>
+                }
+                @if (Model.Gender == "s")
+                {
+                    <span>Spayed</span>
+                }
+                @if (Model.Gender == "M")
+                {
+                    <span>Male</span>
+                }
+                @if (Model.Gender == "F")
+                {
+                    <span>Female</span>
+                }
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PetNotes)
         </dt>

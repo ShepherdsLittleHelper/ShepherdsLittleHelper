@@ -14,7 +14,7 @@
     
     
     *@
-<h2>Index</h2>
+<h2>Here are your pets!</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -50,39 +50,62 @@
         <th></th>
     </tr>*@
     
+<div class="container">
+    @*<div class="row">*@
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 " id="petBoarder">
+                @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+                @*Use default image if picture not available*@
+                <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+                <br />
+                <span id="petName">@Html.DisplayFor(modelItem => item.PetName)</span>
+                <br />
+                <hr>
+                @Html.DisplayNameFor(model => model.Location.LocationName) : @Html.DisplayFor(modelItem => item.Location.LocationName)
+                <br />
+                @*@Html.DisplayFor(modelItem => item.PetType.PetTypeDescription)*@
+                @*<br />*@
+                @Html.DisplayNameFor(model => model.Gender) : @*@Html.DisplayFor(modelItem => item.Gender)*@
+                @if(item.Gender=="n")
+                {
+                    <span>Neutered</span>
+                }
+                @if (item.Gender == "s")
+                {
+                    <span>Spayed</span>
+                }
+                @if (item.Gender == "M")
+                {
+                    <span>Male</span>
+                }
+                @if (item.Gender == "F")
+                {
+                    <span>Female</span>
+                }
 
-@foreach (var item in Model)
-{
+                <br />
+                @Html.DisplayFor(modelItem => item.Age) || @Html.DisplayFor(modelItem => item.Birthday)
+                <br />
+                @Html.DisplayNameFor(model => model.Weight) : @Html.DisplayFor(modelItem => item.Weight)
+                @if (item.Weight <= 1)
+                {
+                    <span>lb</span>
+                }
+                else
+                {
+                    <span>lbs</span>
+                }
+                <br />
+                @Html.DisplayNameFor(model => model.PetNotes) : @Html.DisplayFor(modelItem => item.PetNotes)
+                <br />
+                @Html.ActionLink("Pet task?", "Index", "PetTasks") ||
+                @Html.ActionLink("Edit", "Edit", new { id = item.PetID }) ||
+                @Html.ActionLink("Details", "Details", new { id = item.PetID }) ||
+                @Html.ActionLink("Delete", "Delete", new { id = item.PetID })
+            </div>
 
-    <div class="col-md-4">
-
-        @*@Html.DisplayFor(modelItem => item.ImageURL)*@
-        @*Use default image if picture not available*@
-        <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
-
-
-        @Html.DisplayFor(modelItem => item.Location.LocationName)
-
-        @Html.DisplayFor(modelItem => item.PetType.PetTypeDescription)
-
-        @Html.DisplayFor(modelItem => item.PetName)
-
-        @Html.DisplayFor(modelItem => item.Gender)
-
-        @Html.DisplayFor(modelItem => item.Birthday)
-
-        @Html.DisplayFor(modelItem => item.Age)
-
-        @Html.DisplayFor(modelItem => item.Weight)<span>lb(s)</span>
-
-        @Html.DisplayFor(modelItem => item.PetNotes)
-
-        @Html.ActionLink("Pet task?", "Index", "PetTasks")
-        @Html.ActionLink("Edit", "Edit", new { id = item.PetID })
-        @Html.ActionLink("Details", "Details", new { id = item.PetID })
-        @Html.ActionLink("Delete", "Delete", new { id = item.PetID })
-    </div>
-
-}
-
+        }
+    @*</div>*@
+</div>
 

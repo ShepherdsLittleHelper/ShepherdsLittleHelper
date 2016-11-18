@@ -4,11 +4,86 @@
     light grey = ededed and 237, 237, 237
     yellow = fdd059 and 253, 208, 89
     red = df5842 and 223, 88, 66
+    petfinder bg color : edece8
 
 */
+.page-header{
+    background-color:white;
+    font-family: 'Yellowtail', cursive;
+    font-size:40px;
+    text-align:center;
+    margin-top:0px;
+}
+.navbar{
+    margin-bottom:0px;
+}
+#loginText{
+   position:absolute;
+   top:0;
+   right:0;
+   font-size:15px;
+}
+#headerAction{
+    width:50%;
+}
+.jumbotron{
+    background-image: url("/Images/collage2-min.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+#jumbText{
+    background-color:rgba(237,237,234,0.8);
+    width:85%;
+    padding-left:1em;
+    padding-top:1px;
+    padding-bottom:1px;   
+    text-align:center;
+    display:inline-block;
+    position:center;
+}
+#logoCaps{
+    font-size:50px
+}
+/*^^^^INDEX PAGE^^^^*/
+
+#petPicture{
+    max-width:300px;
+    max-height:300px;
+}
+
+#petBoarder{
+    border:1px solid black;
+    height:500px;
+    width:350px;
+    overflow:visible;
+    text-align:center;
+    padding-top:8px;
+    margin:2px;
+}
+#petName{
+    font-size:20px;
+}
+hr{
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+/*^^^^PET VIEW^^^^*/
+
+
+
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GENERATED CODE BELOW*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    /*CHANGED BG COLOR*/
+    background-color: #edece8;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,10 +104,4 @@ input,
 select,
 textarea {
     max-width: 280px;
-}
-/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ GENERATED CODE*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-#petPicture{
-    height:350px;
-    width:200px;
 }
