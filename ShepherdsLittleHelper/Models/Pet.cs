@@ -18,7 +18,7 @@ namespace ShepherdsLittleHelper.Models
         //Trim time off date
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Birthday { get; set; }
-        [Display(Name = "Weight (lbs)")]
+        [Display(Name = "Weight")]
         public double Weight { get; set; }
         [Display(Name = "Special notes")]
         public string PetNotes { get; set; }

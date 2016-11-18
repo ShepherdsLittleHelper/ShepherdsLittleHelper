@@ -15,6 +15,7 @@ namespace ShepherdsLittleHelper.Models
         public string TaskDescription { get; set; }
         public string Frequency { get; set; }
         public DateTime Deadline { get; set; }
+        [Display(Name = "Done")]
         public bool IsDone { get; set; }
 
         [ForeignKey("Location")]

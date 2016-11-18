@@ -17,7 +17,7 @@
 <h2>Here are your pets!</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a pet", "Create")
 </p>
     @*<tr>
         <th>
@@ -99,7 +99,7 @@
                 <br />
                 @Html.DisplayNameFor(model => model.PetNotes) : @Html.DisplayFor(modelItem => item.PetNotes)
                 <br />
-                @Html.ActionLink("Pet task?", "Index", "PetTasks") ||
+                @Html.ActionLink("Pet task", "Index", "PetTasks") ||
                 @Html.ActionLink("Edit", "Edit", new { id = item.PetID }) ||
                 @Html.ActionLink("Details", "Details", new { id = item.PetID }) ||
                 @Html.ActionLink("Delete", "Delete", new { id = item.PetID })
