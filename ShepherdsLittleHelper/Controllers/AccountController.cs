@@ -454,6 +454,7 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     petTask.IsArchived = true;
                     PetTask newPetTask = new PetTask(petTask);
+                    db.PetTasks.Add(newPetTask);
                     db.SaveChanges();
                 }
             }
@@ -478,6 +479,7 @@ namespace ShepherdsLittleHelper.Controllers
                     {
                         locationTask.IsArchived = true;
                         LocationTask newLocationTask = new LocationTask(locationTask);
+                        db.LocationTasks.Add(newLocationTask);
                         db.SaveChanges();
                     }
                 }

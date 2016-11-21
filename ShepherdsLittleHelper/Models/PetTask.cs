@@ -43,14 +43,15 @@ namespace ShepherdsLittleHelper.Models
 
         public PetTask(PetTask currentTask)
         {
-            this.CreationDate = DateTime.Today;
-            this.IsArchived = false;
-            this.TaskDescription = currentTask.TaskDescription;
-            this.Frequency = currentTask.Frequency;
-            this.Deadline = currentTask.Deadline;
-            this.Pet = currentTask.Pet;
-            this.Location = currentTask.Location;
-            this.TaskType = currentTask.TaskType;
+            CreationDate = DateTime.Today;
+            IsArchived = false;
+            TaskDescription = currentTask.TaskDescription;
+            Frequency = currentTask.Frequency;
+            Deadline = currentTask.Deadline;
+            Pet = currentTask.Pet;
+            Location = currentTask.Location;
+            TaskType = currentTask.TaskType;
+            IsDone = false;
         }
 
     }

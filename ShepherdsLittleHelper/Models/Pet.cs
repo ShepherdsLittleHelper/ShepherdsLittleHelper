@@ -51,6 +51,5 @@ namespace ShepherdsLittleHelper.Models
             get { return this.AgeYears.ToString() + " years " + this.AgeMonths.ToString() + " months"; }
             set { }
         }
-
     }
 }
