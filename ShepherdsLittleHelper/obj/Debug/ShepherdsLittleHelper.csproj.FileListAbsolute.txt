@@ -82,3 +82,17 @@ c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper
 c:\users\wecancodeit\documents\visual studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.pdb
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.builddb.resources
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.csproj.GenerateResource.Cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\csc.exe.config
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\csc.rsp
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\csi.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\csi.rsp
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\System.AppContext.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\vbc.exe.config
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\vbc.rsp

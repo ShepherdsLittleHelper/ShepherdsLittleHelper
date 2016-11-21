@@ -12,12 +12,49 @@
     font-family: 'Yellowtail', cursive;
     font-size:24px;
     text-align:center;
-    margin-top:0;
-    margin-bottom:0;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-bottom:0px;
+    border-bottom:0px;
 }
+.xs-task-boxes{
+    border:1px solid black;
+}
+/*Navbar*/
 .navbar{
     margin-bottom:10px;
-    border-radius:0;
+    border-radius:0px;
+}
+#contact-link{
+    color:#a1d7d7;
+}
+#contact-link:hover{
+    color:white;
+    background-color:#4d4d4d;
+}
+#about-link{
+    color:#bfe1bf;
+}
+#about-link:hover{
+    color:white;
+    background-color:#4d4d4d;
+}
+.navbar-inverse .navbar-brand{
+    color:#df5842;
+}
+.navbar-inverse .navbar-brand:hover{
+    color:white;
+    background-color:#4d4d4d;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color:#fdd059;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+    color:white;
+    background-color:#4d4d4d;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fdd059;
 }
 .xs-task-boxes{
     border:1px solid black;
@@ -170,6 +207,8 @@ footer a:hover{
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GENERATED CODE BELOW*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 body {
     padding-bottom: 20px;
+    /*CHANGED BG COLOR*/
+    background-color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
