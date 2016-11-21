@@ -10,7 +10,7 @@
 .page-header{
     background-color:white;
     font-family: 'Yellowtail', cursive;
-    font-size:40px;
+    font-size:24px;
     text-align:center;
     margin-top:0px;
 }
@@ -43,37 +43,114 @@
     position:center;
 }
 #logoCaps{
-    font-size:50px
+    font-size:30px;
 }
+
 /*^^^^INDEX PAGE^^^^*/
 
+.about-page a:hover{
+   text-decoration:none;
+   color:#fdd059 ;
+}
+.about-img{
+   max-width:90%;
+}
+/*^^^^ABOUT PAGE^^^^*/
+
+.tile-content{
+   position:absolute;
+   top:50%;
+   left:50%;
+   height:200px;
+   width:98%;
+   margin-top:-75px;
+   margin-left:-50%;
+}
+#tasks-tile{
+   height:225px;
+   background-image:url("../Images/bowl-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:white;
+   border:solid 15px #a1d7d7 ;
+}
+#pets-tile{
+   height:225px;
+   background-image:url("../Images/petblur-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:white;
+   border:solid 15px #df5842 ;
+}
+#locations-tile{
+   height:225px;
+   background-image:url("../Images/Doghouse-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:white;
+   border:solid 15px #bfe1bf ;
+}
+#task-types-tile{
+   height:225px;
+   background-image:url("../Images/Pre_Trip_Checklist_(5161314421)-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:black;
+   border:solid 15px #ededed ;
+}
+#pet-types-tile{
+   height:225px;
+   background-image:url("../Images/dna-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:black;
+   border:solid 15px #fdd059 ;
+}
+#groups-tile{
+   height:225px;
+   background-image:url("../Images/group-min.jpg");
+   background-size:cover;
+   position:relative;
+   color:white;
+   border:solid 15px #000;
+}
+/*^^^^NAVGATION PAGE^^^^*/
+
 #petPicture{
-    max-width:300px;
+    max-width:95%;
     max-height:300px;
 }
-
+#petContainer{
+    margin: 0 auto;
+    display:block;
+}
 #petBoarder{
-    border:1px solid black;
+    border:1px solid gray;
     height:500px;
-    width:350px;
-    overflow:visible;
     text-align:center;
-    padding-top:8px;
-    margin:2px;
+    padding-top:10px;
+    margin:5px auto 0 auto;
+    font-size:16px;
 }
 #petName{
     font-size:20px;
 }
+#petDisplay{
+    font-weight:bold;
+}
 hr{
     display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.5em auto 0.5em auto;
     border-style: inset;
     border-width: 1px;
 }
 /*^^^^PET VIEW^^^^*/
+
+footer a:hover{
+   text-decoration:none;
+   color:#df5842 ;
+}
+/*^^^^FOOTER PAGE^^^^*/
 
 
 
