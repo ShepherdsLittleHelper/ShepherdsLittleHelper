@@ -10,37 +10,31 @@
 <p>
     @Html.ActionLink("Create a location task", "Create")
 </p>
-<table class="table">
+<table class="table hidden-xs">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
-        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.Location.LocationName)
+            Location Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TaskType.TaskTypeName)
+            Task
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TaskDescription)
+            Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Frequency)
+            Frequency
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Deadline)
+            Deadline
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsDone)
+            Done
         </th>
         <th></th>
     </tr>
 
 @foreach (var model in Model) {
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelmodel => model.ApplicationUser.Email)
-        </td>*@
         <td>
             @Html.DisplayFor(modelmodel => model.Location.LocationName)
         </td>
@@ -78,3 +72,30 @@
 }
 
 </table>
+<div class="row container visible-xs">
+    @foreach (var model in Model)
+    {
+        <div class="col-xs-12 xs-task-boxes">
+            <b>Locatoin Name: </b>@Html.DisplayFor(modelmodel => model.Location.LocationName)<br />
+            <b>Task: </b>@Html.DisplayFor(modelmodel => model.TaskType.TaskTypeName)<br />
+            <b>Description: </b>@Html.DisplayFor(modelmodel => model.TaskDescription)<br />
+            <b>Frequency: </b>@Html.DisplayFor(modelmodel => model.Frequency)<br />
+            <b>Deadline: </b>@Html.DisplayFor(modelmodel => model.Deadline)<br />
+            <b>Done: </b>
+            <a href="@Url.Action("ToggleDone", new {id=model.L_TaskID})">
+                @if (model.IsDone)
+                {
+                    <span class="glyphicon glyphicon-check"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-unchecked"></span>
+                }
+            </a><br />
+            @Html.ActionLink("Edit", "Edit", new { id = model.L_TaskID }) |
+            @Html.ActionLink("Details", "Details", new { id = model.L_TaskID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = model.L_TaskID })
+        </div>
+    }
+</div>
+
