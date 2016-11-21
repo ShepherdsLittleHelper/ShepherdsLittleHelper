@@ -12,19 +12,15 @@
     font-family: 'Yellowtail', cursive;
     font-size:24px;
     text-align:center;
-    margin-top:0px;
+    margin-top:0;
+    margin-bottom:0;
 }
 .navbar{
-    margin-bottom:0px;
+    margin-bottom:10px;
+    border-radius:0;
 }
-#loginText{
-   position:absolute;
-   top:0;
-   right:0;
-   font-size:15px;
-}
-#headerAction{
-    width:50%;
+.xs-task-boxes{
+    border:1px solid black;
 }
 .jumbotron{
     background-image: url("/Images/collage2-min.jpg");
@@ -116,6 +112,22 @@
 }
 /*^^^^NAVGATION PAGE^^^^*/
 
+#groupIndex{
+    margin-bottom:15px;
+    border:1px solid black;
+    font-size:15px;
+}
+/*^^^^GROUP PAGE^^^^*/
+#locationIndex{
+    margin-bottom:15px;
+    border:1px solid black;
+    font-size:15px;
+}
+#locationText{
+    font-weight:bold;
+}
+/*^^^^LOCATION PAGE^^^^*/
+
 #petPicture{
     max-width:95%;
     max-height:300px;
@@ -157,10 +169,7 @@ footer a:hover{
 
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GENERATED CODE BELOW*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
-    /*CHANGED BG COLOR*/
-    background-color: #edece8;
 }
 
 /* Set padding to keep content from hitting the edges */

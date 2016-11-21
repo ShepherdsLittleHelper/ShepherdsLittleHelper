@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Add a location", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Group.GroupName)
@@ -24,30 +24,28 @@
             @Html.DisplayNameFor(model => model.LocationNotes)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
-@foreach (var model in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelmodel => model.Group.GroupName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelmodel => model.MaxOccupancy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelmodel => model.LocationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelmodel => model.LocationNotes)
-        </td>
-        <td>
-            @Html.ActionLink("View pets", "Index", "Pets") |
-            @Html.ActionLink("Location task", "Create", "LocationTasks") |
-            @Html.ActionLink("Edit", "Edit", new { id=model.LocationID }) |
-            @Html.ActionLink("Details", "Details", new { id=model.LocationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=model.LocationID })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="container" id="locationIndex">
+        <div class="col-xs-12 col-sm-6 col-md-4" >
+            <p><span id="locationText">@Html.DisplayNameFor(model => model.Group.GroupName)</span>: @Html.DisplayFor(modelitem => item.Group.GroupName)</p>
+
+            <p><span id="locationText">@Html.DisplayNameFor(model => model.MaxOccupancy)</span>: @Html.DisplayFor(modelitem => item.MaxOccupancy)</p>
+
+            <p><span id="locationText">@Html.DisplayNameFor(model => model.LocationName)</span>: @Html.DisplayFor(modelitem => item.LocationName)</p>
+
+            <p><span id="locationText">@Html.DisplayNameFor(model => model.LocationNotes)</span>: @Html.DisplayFor(modelitem => item.LocationNotes)</p>
+
+            @Html.ActionLink("Pets", "Index", "Pets") ||
+            @Html.ActionLink("Task", "Create", "LocationTasks") ||
+            @Html.ActionLink("Edit", "Edit", new { id = item.LocationID }) ||
+            @Html.ActionLink("Details", "Details", new { id = item.LocationID }) ||
+            @Html.ActionLink("Delete", "Delete", new { id = item.LocationID })
+            </div>
+        </div>
+
 }
 
-</table>
+
