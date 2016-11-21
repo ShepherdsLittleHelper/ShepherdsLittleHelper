@@ -17,6 +17,8 @@ namespace ShepherdsLittleHelper.Models
         public DateTime Deadline { get; set; }
         [Display(Name = "Done")]
         public bool IsDone { get; set; }
+        public DateTime CreationDate { get; set; }
+        public bool IsArchived { get; set; }
 
         [ForeignKey("Location")]
         public int LocationID { get; set; }
@@ -29,6 +31,23 @@ namespace ShepherdsLittleHelper.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserID { get; set; }
         public virtual User ApplicationUser { get; set; }
+
+        public LocationTask()
+        {
+            this.CreationDate = DateTime.Today;
+            this.IsArchived = false;
+        }
+
+        public LocationTask(LocationTask currentTask)
+        {
+            this.CreationDate = DateTime.Today;
+            this.IsArchived = false;
+            this.TaskDescription = currentTask.TaskDescription;
+            this.Frequency = currentTask.Frequency;
+            this.Deadline = currentTask.Deadline;
+            this.Location = currentTask.Location;
+            this.TaskType = currentTask.TaskType;
+        }
 
     }
 }

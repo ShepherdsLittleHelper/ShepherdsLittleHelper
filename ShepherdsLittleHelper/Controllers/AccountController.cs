@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ShepherdsLittleHelper.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace ShepherdsLittleHelper.Controllers
 {
@@ -17,6 +19,7 @@ namespace ShepherdsLittleHelper.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -78,7 +81,9 @@ namespace ShepherdsLittleHelper.Controllers
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
-                case SignInStatus.Success:
+                case SignInStatus.Success:                    
+                    User currentUser = db.Users.Where(u => u.Email == model.Email).ToList()[0];
+                    TaskTick(currentUser);
                     return RedirectToAction("Navigator", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -421,6 +426,63 @@ namespace ShepherdsLittleHelper.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public void TaskTick(User currentUser)
+        {
+            var groupIds = currentUser.Groups.Select(g => g.GroupID);
+            IEnumerable<PetTask> userPetTasks = db.PetTasks.Where(p => groupIds.Contains(p.Pet.Location.GroupID)).Where(p => p.IsArchived == false).AsEnumerable();
+            IEnumerable<LocationTask> userLocationTasks = db.LocationTasks.Where(l => groupIds.Contains(l.Location.GroupID)).Where(l => l.IsArchived == false).AsEnumerable();
+            foreach (PetTask petTask in userPetTasks.ToList())
+            {
+                int offset;
+                switch (petTask.Frequency.ToLower())
+                {
+                    case "daily":
+                        offset = 1;
+                        break;
+                    case "weekly":
+                        offset = 7;
+                        break;
+                    case "monthly":
+                        offset = 30;
+                        break;
+                    default:
+                        continue;
+                }
+                if ((DateTime.Today - petTask.CreationDate).Days >= offset && (DateTime.Now < petTask.Deadline))
+                {
+                    petTask.IsArchived = true;
+                    PetTask newPetTask = new PetTask(petTask);
+                    db.PetTasks.Add(newPetTask);
+                    db.SaveChanges();
+                }
+            }
+            foreach (LocationTask locationTask in userLocationTasks.ToList())
+                {
+                    int offset;
+                    switch (locationTask.Frequency.ToLower())
+                    {
+                        case "daily":
+                            offset = 1;
+                            break;
+                        case "weekly":
+                            offset = 7;
+                            break;
+                        case "monthly":
+                            offset = 30;
+                            break;
+                        default:
+                            continue;
+                    }
+                    if ((DateTime.Today - locationTask.CreationDate).Days >= offset && (DateTime.Now < locationTask.Deadline))
+                    {
+                        locationTask.IsArchived = true;
+                        LocationTask newLocationTask = new LocationTask(locationTask);
+                        db.LocationTasks.Add(newLocationTask);
+                        db.SaveChanges();
+                    }
+                }
         }
 
         #region Helpers
