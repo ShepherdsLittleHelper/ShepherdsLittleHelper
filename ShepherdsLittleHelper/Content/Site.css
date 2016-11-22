@@ -7,6 +7,9 @@
     petfinder bg color : edece8
 
 */
+.navbar-header a{
+    color:#df5842;
+}
 .page-header{
     background-color:white;
     font-family: 'Yellowtail', cursive;
@@ -38,6 +41,9 @@
 #about-link:hover{
     color:white;
     background-color:#4d4d4d;
+}
+.navbar-brand{
+    font-size:14px;
 }
 .navbar-inverse .navbar-brand{
     color:#df5842;
@@ -95,7 +101,7 @@
    top:50%;
    left:50%;
    height:200px;
-   width:98%;
+   width:100%;
    margin-top:-75px;
    margin-left:-50%;
 }
@@ -129,7 +135,7 @@
    background-size:cover;
    position:relative;
    color:black;
-   border:solid 15px #ededed ;
+   border:solid 15px #cccccc ;
 }
 #pet-types-tile{
    height:225px;
