@@ -15,9 +15,8 @@
 {
     <div class="container">
         <div class="col-xs-12 col-sm-6 col-md-4" id="groupIndex">
-            @Html.DisplayFor(modelmodel => model.GroupName)
-            <br />
-            @Html.ActionLink("Add location", "Index", "Locations")  
+            <p>@Html.DisplayFor(modelmodel => model.GroupName)</p>
+            @Html.ActionLink("Add a room", "Index", "Locations")  
             <br/> 
             @Html.ActionLink("Edit", "Edit", new { id = model.GroupID })   
             @Html.ActionLink("Details", "Details", new { id = model.GroupID })   

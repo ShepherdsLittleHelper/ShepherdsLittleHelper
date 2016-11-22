@@ -9,25 +9,18 @@
 <p>
     @Html.ActionLink("Add species", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PetTypeDescription)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PetTypeDescription)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PetTypeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PetTypeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PetTypeID })
-        </td>*@
-    </tr>
-}
 
-</table>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-12" id="petType">
+            <p>@Html.DisplayFor(modelItem => item.PetTypeDescription)</p>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.PetTypeID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.PetTypeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.PetTypeID })
+                </td>*@
+        </div>
+    }
+</div>

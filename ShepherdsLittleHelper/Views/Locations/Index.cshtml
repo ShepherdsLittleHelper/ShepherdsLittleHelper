@@ -37,9 +37,9 @@
             <p><span id="locationText">@Html.DisplayNameFor(model => model.LocationName)</span>: @Html.DisplayFor(modelitem => item.LocationName)</p>
 
             <p><span id="locationText">@Html.DisplayNameFor(model => model.LocationNotes)</span>: @Html.DisplayFor(modelitem => item.LocationNotes)</p>
-
+            <br/>
             @Html.ActionLink("Pets", "Index", "Pets") ||
-            @Html.ActionLink("Task", "Create", "LocationTasks") ||
+            @Html.ActionLink("Location tasks", "Create", "LocationTasks") ||
             @Html.ActionLink("Edit", "Edit", new { id = item.LocationID }) ||
             @Html.ActionLink("Details", "Details", new { id = item.LocationID }) ||
             @Html.ActionLink("Delete", "Delete", new { id = item.LocationID })

@@ -28,6 +28,9 @@
     margin-bottom:10px;
     border-radius:0px;
 }
+div.navbar.navbar-inverse{
+    background-color:#4d4d4d;
+}
 #contact-link{
     color:#a1d7d7;
 }
@@ -111,7 +114,7 @@
    background-size:cover;
    position:relative;
    color:white;
-   border:solid 15px #a1d7d7 ;
+   border:solid 5px  #ffe6cc ;
 }
 #pets-tile{
    height:225px;
@@ -119,7 +122,7 @@
    background-size:cover;
    position:relative;
    color:white;
-   border:solid 15px #df5842 ;
+   border:solid 5px #ffd9b3 ;
 }
 #locations-tile{
    height:225px;
@@ -127,7 +130,7 @@
    background-size:cover;
    position:relative;
    color:white;
-   border:solid 15px #bfe1bf ;
+   border:solid 5px #ffcc99 ;
 }
 #task-types-tile{
    height:225px;
@@ -135,7 +138,7 @@
    background-size:cover;
    position:relative;
    color:black;
-   border:solid 15px #cccccc ;
+   border:solid 5px #ffe6cc ;
 }
 #pet-types-tile{
    height:225px;
@@ -143,7 +146,7 @@
    background-size:cover;
    position:relative;
    color:black;
-   border:solid 15px #fdd059 ;
+   border:solid 5px #ffd9b3 ;
 }
 #groups-tile{
    height:225px;
@@ -151,20 +154,27 @@
    background-size:cover;
    position:relative;
    color:white;
-   border:solid 15px #000;
+   border:solid 5px #ffcc99;
 }
 /*^^^^NAVGATION PAGE^^^^*/
 
 #groupIndex{
     margin-bottom:15px;
-    border:1px solid black;
+    padding-bottom:10px;
+    border-bottom:1px solid black;
     font-size:15px;
+    background-color:white;
+}
+#groupIndex p {
+    font-weight:bold;
 }
 /*^^^^GROUP PAGE^^^^*/
 #locationIndex{
     margin-bottom:15px;
-    border:1px solid black;
+    padding-bottom:10px;
+    border-bottom:1px solid black;
     font-size:15px;
+    background-color:white;
 }
 #locationText{
     font-weight:bold;
@@ -180,12 +190,14 @@
     display:block;
 }
 #petBoarder{
-    border:1px solid gray;
-    height:500px;
+    border:2px solid  #ffcc99;
+    height:550px;
+    overflow:auto;
     text-align:center;
-    padding-top:10px;
+    padding:25px;
     margin:5px auto 0 auto;
     font-size:16px;
+    background-color:white;
 }
 #petName{
     font-size:20px;
@@ -201,6 +213,17 @@ hr{
 }
 /*^^^^PET VIEW^^^^*/
 
+#petType p{
+    font-weight:bold;
+}
+#petType{
+    background-color:white;
+}
+/*^^^^PET TYPE^^^^*/
+
+footer {
+    margin: 50px 0 0 0;
+}
 footer a:hover{
    text-decoration:none;
    color:#df5842 ;
@@ -214,7 +237,7 @@ footer a:hover{
 body {
     padding-bottom: 20px;
     /*CHANGED BG COLOR*/
-    background-color: white;
+    background-color:#ffffcc;
 }
 
 /* Set padding to keep content from hitting the edges */
