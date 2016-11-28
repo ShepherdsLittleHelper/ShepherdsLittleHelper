@@ -40,10 +40,13 @@
     border-radius:0px;
 }
 .navbar-inverse{
-    border-color:#e6e600;
+    border-left-color:#ccccff;
+    border-right-color:#ccccff;
+    border-bottom-color:#ffffcc;
+    border-top:solid 2px #4d4d4d;
 }
 div.navbar.navbar-inverse{
-    background-color: #ffff66;
+    background-color: #ccccff;
 }
 #contact-link{
     color:#4d4d4d;
@@ -52,7 +55,7 @@ div.navbar.navbar-inverse{
 #dropdownMenu1{
     color:#4d4d4d;
     border:none;
-    background-color:#ffff66;
+    background-color:#ccccff;
     padding:15px 15px 15px 15px;
     border-radius:0px;
     font-family: 'Hammersmith One', sans-serif;
@@ -85,7 +88,7 @@ div.navbar.navbar-inverse{
     background-color: #4d4d4d;
 }
 .navbar-inverse .navbar-toggle:hover{
-    background-color: darkgrey;
+    background-color: #ffffcc;
     
 }
 .xs-task-boxes{
@@ -120,11 +123,11 @@ div.navbar.navbar-inverse{
     left:10%;
 }
 .index-btns{
-    border:solid 5px #ffff66;
+    border:solid 5px #4d4d4d;
 }
 .index-btns:hover{
-    background-color:#ffff66;
-    border-color:#ffff66;
+    background-color:#ffffcc;
+    border-color:#4d4d4d;
 }
 
 /*^^^^ABOUT PAGE^^^^*/
@@ -139,11 +142,13 @@ div.navbar.navbar-inverse{
 
 /*^^^^NAVGATION PAGE^^^^*/
 .nav-page-btns{
-    border:solid 5px #ffff66;
+    border:none;
+    background-color:#ccccff;
+    border-radius: 15px 15px;
 }
 .nav-page-btns:hover{
-    background-color:#ffff66;
-    border-color:#ffff66;
+    background-color:#ffffb3;
+    border:none;
 }
 .tile-content{
    position:absolute;
@@ -285,7 +290,7 @@ body {
     padding-bottom: 20px;
     /*CHANGED BG COLOR*/
     background-color:#ffffcc;
-    font-family:Verdana;
+    font-family: 'Varela Round', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
