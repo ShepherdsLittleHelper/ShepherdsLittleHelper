@@ -17,7 +17,7 @@ namespace ShepherdsLittleHelper.Models
         [StringLength(1)]
         public string Gender { get; set; }
         //Trim time off date
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
         [Display(Name = "Weight")]
         [DefaultValue(0)]

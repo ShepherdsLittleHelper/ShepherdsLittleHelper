@@ -126,6 +126,7 @@ namespace ShepherdsLittleHelper.Controllers
                 IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
                 ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
                 ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+                ViewBag.Birthday = pet.Birthday.Date;
                 return View(pet);
             }
             return RedirectToAction("Index");

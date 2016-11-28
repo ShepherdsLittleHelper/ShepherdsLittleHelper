@@ -121,6 +121,7 @@ namespace ShepherdsLittleHelper.Controllers
                 IEnumerable<Pet> pets = db.Pets.Where(p => groupIds.Contains(p.Location.GroupID)).AsEnumerable();
                 ViewBag.PetID = new SelectList(pets, "PetID", "PetName");
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", petTask.TaskTypeID);
+                ViewBag.Deadline = petTask.Deadline.Date;
                 return View(petTask);
             }
             return RedirectToAction("/Index");
