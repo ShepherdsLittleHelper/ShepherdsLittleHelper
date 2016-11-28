@@ -7,11 +7,9 @@
     petfinder bg color : edece8
 
 */
-.navbar-header a{
-    color:#df5842;
-}
 .page-header{
-    background-color:white;
+    background-image:url('../Images/green-pasture.jpg');
+    background-size:cover;
     font-family: 'Yellowtail', cursive;
     font-size:24px;
     text-align:center;
@@ -24,50 +22,78 @@
     border:1px solid black;
 }
 /*Navbar*/
+.navbar-header a{
+    font-size:18px;
+    color:#4d4d4d;
+    display:inline-block;
+    position:relative;
+    padding:12px 15px 12px 15px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+.navbar-header a:hover{
+    text-decoration:none;
+    background-color:#4d4d4d;
+    color:white;
+}
 .navbar{
     margin-bottom:10px;
     border-radius:0px;
 }
+.navbar-inverse{
+    border-color:#e6e600;
+}
 div.navbar.navbar-inverse{
-    background-color:#4d4d4d;
+    background-color: #ffff66;
 }
 #contact-link{
-    color:#a1d7d7;
+    color:#4d4d4d;
+    font-family: 'Hammersmith One', sans-serif;
+}
+#dropdownMenu1{
+    color:#4d4d4d;
+    border:none;
+    background-color:#ffff66;
+    padding:15px 15px 15px 15px;
+    border-radius:0px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+#dropdownMenu1:hover{
+    color:white;
+    background-color:#4d4d4d;
 }
 #contact-link:hover{
     color:white;
     background-color:#4d4d4d;
 }
 #about-link{
-    color:#bfe1bf;
+    color:#4d4d4d;
+    font-family: 'Hammersmith One', sans-serif;
 }
 #about-link:hover{
     color:white;
     background-color:#4d4d4d;
 }
-.navbar-brand{
-    font-size:14px;
-}
-.navbar-inverse .navbar-brand{
-    color:#df5842;
-}
-.navbar-inverse .navbar-brand:hover{
-    color:white;
-    background-color:#4d4d4d;
-}
 .navbar-inverse .navbar-nav > li > a {
-    color:#fdd059;
+    color:#4d4d4d;
+    font-family: 'Hammersmith One', sans-serif;
 }
 .navbar-inverse .navbar-nav > li > a:hover{
     color:white;
     background-color:#4d4d4d;
 }
-.navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #fdd059;
+.navbar-inverse .navbar-toggle > .icon-bar {
+    background-color: #4d4d4d;
+}
+.navbar-inverse .navbar-toggle:hover{
+    background-color: darkgrey;
+    
 }
 .xs-task-boxes{
     border:1px solid black;
 }
+
+
+/*^^^^INDEX PAGE^^^^*/
 .jumbotron{
     background-image: url("/Images/collage2-min.jpg");
     background-repeat:no-repeat;
@@ -76,29 +102,49 @@ div.navbar.navbar-inverse{
 }
 #jumbText{
     background-color:rgba(237,237,234,0.8);
-    width:85%;
+    width:80%;
+    padding-right:1em;
     padding-left:1em;
     padding-top:1px;
     padding-bottom:1px;   
     text-align:center;
     display:inline-block;
-    position:center;
+    position:relative;
+    left:10%;
 }
 #logoCaps{
     font-size:30px;
 }
+#learn-btn{
+    position:relative;
+    left:10%;
+}
+.index-btns{
+    border:solid 5px #ffff66;
+}
+.index-btns:hover{
+    background-color:#ffff66;
+    border-color:#ffff66;
+}
 
-/*^^^^INDEX PAGE^^^^*/
-
+/*^^^^ABOUT PAGE^^^^*/
 .about-page a:hover{
    text-decoration:none;
    color:#fdd059 ;
 }
 .about-img{
    max-width:90%;
+   width:300px;
 }
-/*^^^^ABOUT PAGE^^^^*/
 
+/*^^^^NAVGATION PAGE^^^^*/
+.nav-page-btns{
+    border:solid 5px #ffff66;
+}
+.nav-page-btns:hover{
+    background-color:#ffff66;
+    border-color:#ffff66;
+}
 .tile-content{
    position:absolute;
    top:50%;
@@ -156,8 +202,6 @@ div.navbar.navbar-inverse{
    color:white;
    border:solid 5px #ffcc99;
 }
-/*^^^^NAVGATION PAGE^^^^*/
-
 #groupIndex{
     margin-bottom:15px;
     padding-bottom:10px;
@@ -221,6 +265,7 @@ hr{
 }
 /*^^^^PET TYPE^^^^*/
 
+/*^^^^FOOTER PAGE^^^^*/
 footer {
     margin: 50px 0 0 0;
 }
@@ -228,8 +273,10 @@ footer a:hover{
    text-decoration:none;
    color:#df5842 ;
 }
-/*^^^^FOOTER PAGE^^^^*/
-
+/*Contact Page*/
+.contact-img{
+    width:300px;
+}
 
 
 
@@ -238,6 +285,7 @@ body {
     padding-bottom: 20px;
     /*CHANGED BG COLOR*/
     background-color:#ffffcc;
+    font-family:Verdana;
 }
 
 /* Set padding to keep content from hitting the edges */
