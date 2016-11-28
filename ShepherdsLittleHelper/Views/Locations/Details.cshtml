@@ -4,52 +4,30 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Details for @Html.DisplayFor(model => model.LocationName)</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Group.GroupName)
-        </dt>
+<div class="container" id="locationDet">
 
-        <dd>
-            @Html.DisplayFor(model => model.Group.GroupName)
-        </dd>
 
-        <dt>
+    <p><span id="locationDetText">@Html.DisplayNameFor(model => model.Group.GroupName)</span>: @Html.DisplayFor(model => model.Group.GroupName)</p>
+
+    @*<dt>
             @Html.DisplayNameFor(model => model.LocationName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LocationName)
-        </dd>
+        </dd>*@
+    <p><span id="locationDetText">@Html.DisplayNameFor(model => model.MaxOccupancy)</span>: @Html.DisplayFor(model => model.MaxOccupancy)</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxOccupancy)
-        </dt>
+    <p><span id="locationDetText">@Html.DisplayNameFor(model => model.LocationNotes)</span>: @Html.DisplayFor(model => model.LocationNotes)</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaxOccupancy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LocationNotes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LocationNotes)
-        </dd>
-
-    </dl>
+    <h3>Pets in @Html.DisplayFor(model => model.LocationName)</h3>
     @foreach (var pet in ViewBag.pets)
     {
-        <dl class="dl-horizontal">
-            <dd>
-                <a href="/Pets/Details/@pet.PetID">@pet.PetName</a>
-            </dd>
-        </dl>
+        <p><a href="/Pets/Details/@pet.PetID">@pet.PetName</a></p>
     }
+    <br />
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.LocationID }) |

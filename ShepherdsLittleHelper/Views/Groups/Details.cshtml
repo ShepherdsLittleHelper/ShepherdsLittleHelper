@@ -4,46 +4,40 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Users in @Html.DisplayFor(model => model.GroupName)</h2>
 
-<div>
-    <h4>Group</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.GroupName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GroupName)
-        </dd>
+<div class="container" id="groupCon">
+    @foreach (var user in ViewBag.users)
+    {
 
-    </dl>
-    @* Here we list the users in the group by email *@
-        @foreach (var user in ViewBag.users)
-        {
-            <dl class="dl-horizontal">
-                <dd>
-                    @user.UserName
-                </dd>
-                <dd>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = model.GroupID }) |
+        <p id="userName">@user.UserName</p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = model.GroupID }) |
                     @Html.ActionLink("Details", "Details", new { id = model.GroupID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = model.GroupID })*@
-                </dd>
-                </dl>
-        }
+    }
+    @using (Html.BeginForm())
+    {
         <p>
             Enter an email to add to group.
         </p>
-        @using (Html.BeginForm())
-        {
-            <input type="text" name="email" />
-            <input type="submit" onclick="userAdded(@ViewBag.email)" />
-        }
-        <div id="userAddedMessage"></div>
+        <input type="text" name="email" />
+        <input type="submit" onclick="userAdded(@ViewBag.email)" />
+    }
+    <br />
+    <div id="userAddedMessage"></div>
+    
+
+            @*@Html.DisplayNameFor(model => model.GroupName)
+
+            @Html.DisplayFor(model => model.GroupName)*@
+
+    @* Here we list the users in the group by email *@
+
+    
+
+    
 </div>
-<p>
+    <br />
     @Html.ActionLink("Edit", "Edit", new { id = Model.GroupID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>

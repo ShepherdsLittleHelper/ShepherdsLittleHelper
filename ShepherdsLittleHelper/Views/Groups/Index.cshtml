@@ -7,23 +7,21 @@
 <h2>Your groups</h2>
 
 <p>
-    @Html.ActionLink("Create new group", "Create")
+    @Html.ActionLink("Create a group", "Create")
 </p>
 
-
-@foreach (var model in Model)
-{
-    <div class="container">
-        <div class="col-xs-12 col-sm-6 col-md-4" id="groupIndex">
-            <p>@Html.DisplayFor(modelmodel => model.GroupName)</p>
-            @Html.ActionLink("Add a room", "Index", "Locations")  
-            <br/> 
-            @Html.ActionLink("Edit", "Edit", new { id = model.GroupID })   
-            @Html.ActionLink("Details", "Details", new { id = model.GroupID })   
-            @Html.ActionLink("Delete", "Delete", new { id = model.GroupID })
-        </div>
-    </div>
-
-}
-
-
+<div class="container">
+    <div class="row">
+        @foreach (var model in Model)
+        {
+            <div class="col-xs-12 col-sm-6 col-md-4" id="groupIndex">
+                <p>@Html.DisplayFor(modelmodel => model.GroupName)</p>
+                @Html.ActionLink("Add room", "Index", "Locations")
+                <br />@Html.ActionLink("Add user", "Details", new { id = model.GroupID })
+                <br />
+                @Html.ActionLink("Edit", "Edit", new { id = model.GroupID }) ||
+                @Html.ActionLink("Delete", "Delete", new { id = model.GroupID })
+            </div>
+        }
+    </div>    
+</div>
