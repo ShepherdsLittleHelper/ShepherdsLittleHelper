@@ -77,6 +77,11 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                
+                    if (pet.PetName == null)
+                    {
+                        pet.PetName = "n/a";
+                    }
                     if (pet.ImageURL == null)
                     {
                         pet.ImageURL = "n/a";
@@ -90,13 +95,13 @@ namespace ShepherdsLittleHelper.Controllers
                     return RedirectToAction("Index");
                 }
 
-                //UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                //User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                //var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                //IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
-                //ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
-                //ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
-                //return View(pet);
+            //UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+            //User currentUser = UserManager.FindById(User.Identity.GetUserId());
+            //var groupIds = currentUser.Groups.Select(g => g.GroupID);
+            //IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+            //ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
+            //ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+            //return View(pet);
             }
             return RedirectToAction("Index");
         }
@@ -137,17 +142,29 @@ namespace ShepherdsLittleHelper.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    if (pet.PetName == null)
+                    {
+                        pet.PetName = "n/a";
+                    }
+                    if (pet.ImageURL == null)
+                    {
+                        pet.ImageURL = "n/a";
+                    }
+                    if (pet.PetNotes == null)
+                    {
+                        pet.PetNotes = "n/a";
+                    }
                     db.Entry(pet).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
-                User currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var groupIds = currentUser.Groups.Select(g => g.GroupID);
-                IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
-                ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
-                ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
-                return View(pet);
+                //UserManager<User> UserManager = new UserManager<User>(new UserStore<User>(db));
+                //User currentUser = UserManager.FindById(User.Identity.GetUserId());
+                //var groupIds = currentUser.Groups.Select(g => g.GroupID);
+                //IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.Group.GroupID)).AsEnumerable();
+                //ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName", pet.LocationID);
+                //ViewBag.PetTypeID = new SelectList(db.PetTypes, "PetTypeID", "PetTypeDescription", pet.PetTypeID);
+                //return View(pet);
             }
             return RedirectToAction("Index");
         }
