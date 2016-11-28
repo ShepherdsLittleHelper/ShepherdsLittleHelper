@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -19,10 +20,13 @@ namespace ShepherdsLittleHelper.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Birthday { get; set; }
         [Display(Name = "Weight")]
+        [DefaultValue(0)]
         public double Weight { get; set; }
         [Display(Name = "Special notes")]
+        [DefaultValue("")]
         public string PetNotes { get; set; }
         [Display(Name = "Image URL")]
+        [DefaultValue("")]
         public string ImageURL { get; set; }
 
         [ForeignKey("Location")]
