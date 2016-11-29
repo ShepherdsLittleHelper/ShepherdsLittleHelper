@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/Scripts.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Varela+Round|Yellowtail" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -22,10 +22,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home", "Navigator", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="~/Home/Navigator"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Menu
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="~/PetTasks/Index">Pet Tasks</a></li>
+                                <li><a href="~/LocationTasks/Index">Location Tasks</a></li>
+                                <li><a href="~/Pets/Index">Pets</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="~/Locations/Index">Locations</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/Groups/Index">Groups</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li id="about-link">@Html.ActionLink("About", "About", "Home")</li>
                     <li id="contact-link">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
