@@ -94,5 +94,5 @@ C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\vbc.exe.config
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\bin\roslyn\vbc.rsp
-C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.NewDB1.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.Migrations.PulledFromMaster.resources
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\ShepherdsLittleHelper\ShepherdsLittleHelper\obj\Debug\ShepherdsLittleHelper.csproj.GenerateResource.Cache
