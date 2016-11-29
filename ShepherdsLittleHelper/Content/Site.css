@@ -103,10 +103,6 @@ div.navbar.navbar-inverse {
     border-radius: 0px;
 }
 
-div.navbar.navbar-inverse {
-    background-color: #4d4d4d;
-}
-
 #contact-link {
     color: #a1d7d7;
 }
@@ -318,13 +314,7 @@ div.navbar.navbar-inverse {
     border: solid 5px #ffcc99;
 }
 
-#groupIndex {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    font-size: 15px;
-    background-color: white;
-}
+
 .tile-content{
     position: absolute;
     top: 50%;
@@ -406,25 +396,26 @@ font-size: 47px;
 #groupIndex {
     margin-bottom:15px;
     padding-bottom:10px;
-    border-bottom:1px solid black;
     font-size:15px;
-    background-color:white;
+    background-color:#ffffb3;
+    border: 1px solid gray;
+
 }
 
 #groupIndex p {
-        font-weight: bold;
-        font-size: 25px;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 #groupCon #userName {
-    font-weight: bold;
+    font-size:19px;
 }
 /*^^^^GROUP PAGE^^^^*/
 #locationIndex {
     margin-bottom: 15px;
     padding-bottom: 10px;
     font-size: 15px;
-    background-color: white;
+    background-color: #ffffb3;
 }
 
 #locationText, #locationDetText {
@@ -446,7 +437,7 @@ font-size: 47px;
     padding: 25px;
     margin: 5px auto 10px auto;
     font-size: 16px;
-    background-color: white;
+    background-color: #ffffb3;
     border: 1px solid gray;
     word-wrap: break-word;
 }
@@ -471,9 +462,6 @@ hr {
     font-weight: bold;
 }
 
-#petType {
-    background-color: white;
-}
 /*^^^^PET TYPE^^^^*/
 
 /*^^^^FOOTER PAGE^^^^*/
