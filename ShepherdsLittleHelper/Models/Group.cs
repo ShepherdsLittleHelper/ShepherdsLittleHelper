@@ -10,7 +10,7 @@ namespace ShepherdsLittleHelper.Models
     {
         [Key]
         public int GroupID { get; set; }
-        [Display(Name ="Group/Location?")]
+        [Display(Name ="Group")]
         public string GroupName { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
