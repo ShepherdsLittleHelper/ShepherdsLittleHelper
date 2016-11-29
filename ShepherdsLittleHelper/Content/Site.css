@@ -7,22 +7,7 @@
     petfinder bg color : edece8
 
 */
-.page-header{
-    background-image:url('../Images/green-pasture.jpg');
-    background-size:cover;
-    font-family: 'Yellowtail', cursive;
-    font-size:24px;
-    text-align:center;
-    margin-top:0px;
-    margin-bottom:0px;
-    padding-bottom:0px;
-    border-bottom:0px;
-}
-.xs-task-boxes{
-    border:1px solid black;
-}
-/*Navbar*/
-.navbar-header a{
+.navbar-header a {
     font-size:18px;
     color:#4d4d4d;
     display:inline-block;
@@ -30,231 +15,434 @@
     padding:12px 15px 12px 15px;
     font-family: 'Hammersmith One', sans-serif;
 }
-.navbar-header a:hover{
-    text-decoration:none;
-    background-color:#4d4d4d;
-    color:white;
+
+.page-header {
+    background-image: url('../Images/green-pasture.jpg');
+    background-size: cover;
+    background-color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px;
 }
-.navbar{
-    margin-bottom:10px;
-    border-radius:0px;
+
+.xs-task-boxes {
+    border: 1px solid black;
 }
-.navbar-inverse{
-    border-left-color:#ccccff;
-    border-right-color:#ccccff;
-    border-bottom-color:#ffffcc;
-    border-top:solid 2px #4d4d4d;
+/*Navbar*/
+.navbar-header a {
+    font-size: 18px;
+    color: #4d4d4d;
+    display: inline-block;
+    position: relative;
+    padding: 12px 15px 12px 15px;
+    font-family: 'Hammersmith One', sans-serif;
 }
-div.navbar.navbar-inverse{
+
+.navbar-header a:hover {
+    text-decoration: none;
+    background-color: #4d4d4d;
+    color: white;
+}
+
+.navbar {
+    margin-bottom: 10px;
+    border-radius: 0px;
+}
+
+.navbar-inverse {
+    border-left-color: #ccccff;
+    border-right-color: #ccccff;
+    border-bottom-color: #ffffcc;
+    border-top: solid 2px #4d4d4d;
+}
+
+div.navbar.navbar-inverse {
     background-color: #ccccff;
 }
-#contact-link{
-    color:#4d4d4d;
+
+#contact-link {
+    color: #4d4d4d;
     font-family: 'Hammersmith One', sans-serif;
 }
-#dropdownMenu1{
-    color:#4d4d4d;
-    border:none;
-    background-color:#ccccff;
-    padding:15px 15px 15px 15px;
-    border-radius:0px;
+
+#dropdownMenu1 {
+    color: #4d4d4d;
+    border: none;
+    background-color: #ccccff;
+    padding: 15px 15px 15px 15px;
+    border-radius: 0px;
     font-family: 'Hammersmith One', sans-serif;
 }
-#dropdownMenu1:hover{
-    color:white;
-    background-color:#4d4d4d;
+
+#dropdownMenu1:hover {
+    color: white;
+    background-color: #4d4d4d;
 }
-#contact-link:hover{
-    color:white;
-    background-color:#4d4d4d;
+
+#contact-link:hover {
+    color: white;
+    background-color: #4d4d4d;
 }
-#about-link{
-    color:#4d4d4d;
+
+#about-link {
+    color: #4d4d4d;
     font-family: 'Hammersmith One', sans-serif;
 }
-#about-link:hover{
-    color:white;
-    background-color:#4d4d4d;
+
+#about-link:hover {
+   color: white;
+   background-color: #4d4d4d;
 }
+
+.navbar {
+    margin-bottom: 10px;
+    border-radius: 0px;
+}
+
+div.navbar.navbar-inverse {
+    background-color: #4d4d4d;
+}
+
+#contact-link {
+    color: #a1d7d7;
+}
+
+#contact-link:hover {
+        color: white;
+        background-color: #4d4d4d;
+}
+
+#about-link {
+    color: #bfe1bf;
+}
+
+#about-link:hover {
+        color: white;
+        background-color: #4d4d4d;
+}
+
+.navbar-brand {
+    font-size: 14px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+        color: white;
+        background-color: #4d4d4d;
+}
+
 .navbar-inverse .navbar-nav > li > a {
     color:#4d4d4d;
     font-family: 'Hammersmith One', sans-serif;
 }
-.navbar-inverse .navbar-nav > li > a:hover{
-    color:white;
-    background-color:#4d4d4d;
+
+.navbar-inverse .navbar-nav > li > a:hover {
+        color: white;
+        background-color: #4d4d4d;
 }
+
 .navbar-inverse .navbar-toggle > .icon-bar {
     background-color: #4d4d4d;
 }
-.navbar-inverse .navbar-toggle:hover{
+
+.navbar-inverse .navbar-toggle:hover {
     background-color: #ffffcc;
-    
-}
-.xs-task-boxes{
-    border:1px solid black;
 }
 
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #4d4d4d;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    color:white;
+    background-color: #4d4d4d;
+}
+
+.xs-task-boxes {
+    border: 1px solid black;
+}
 
 /*^^^^INDEX PAGE^^^^*/
 .jumbotron{
     background-image: url("/Images/collage2-min.jpg");
-    background-repeat:no-repeat;
-    background-size:cover;
-    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#jumbText{
-    background-color:rgba(237,237,234,0.8);
-    width:80%;
-    padding-right:1em;
-    padding-left:1em;
-    padding-top:1px;
-    padding-bottom:1px;   
-    text-align:center;
-    display:inline-block;
-    position:relative;
-    left:10%;
+
+#jumbText {
+    background-color: rgba(237,237,234,0.8);
+    width: 80%;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    left: 10%;
 }
-#logoCaps{
-    font-size:30px;
+
+#logoCaps {
+    font-size: 30px;
 }
-#learn-btn{
-    position:relative;
-    left:10%;
+
+#learn-btn {
+    position: relative;
+    left: 10%;
 }
-.index-btns{
-    border:solid 5px #4d4d4d;
+
+.index-btns {
+    border: solid 5px #4d4d4d;
 }
-.index-btns:hover{
-    background-color:#ffffcc;
-    border-color:#4d4d4d;
+
+.index-btns:hover {
+    background-color: #ffffcc;
+    border-color: #4d4d4d;
+
 }
 
 /*^^^^ABOUT PAGE^^^^*/
-.about-page a:hover{
-   text-decoration:none;
-   color:#fdd059 ;
+.about-page a:hover {
+    text-decoration: none;
+    color: #fdd059;
 }
-.about-img{
-   max-width:90%;
-   width:300px;
+
+.about-img {
+    max-width: 90%;
+    width: 300px;
+}
+.about-page a:hover{
+    text-decoration: none;
+    color: #fdd059;
+}
+
+.about-img {
+    max-width: 90%;
+    width:300px;
 }
 
 /*^^^^NAVGATION PAGE^^^^*/
-.nav-page-btns{
-    border:none;
-    background-color:#ccccff;
+.nav-page-btns {
+    border: none;
+    background-color: #ccccff;
     border-radius: 15px 15px;
 }
-.nav-page-btns:hover{
-    background-color:#ffffb3;
-    border:none;
+
+.nav-page-btns:hover {
+    background-color: #ffffb3;
+    border: none;
+}
+
+.tile-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 100%;
+    margin-top: -75px;
+    margin-left: -50%;
+}
+
+#tasks-tile {
+    height: 225px;
+    background-image: url("../Images/bowl-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border: solid 5px #ffe6cc;
+}
+
+#pets-tile {
+    height: 225px;
+    background-image: url("../Images/petblur-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border: solid 5px #ffd9b3;
+}
+
+#locations-tile {
+    height: 225px;
+    background-image: url("../Images/Doghouse-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border: solid 5px #ffcc99;
+}
+
+#task-types-tile {
+    height: 225px;
+    background-image: url("../Images/Pre_Trip_Checklist_(5161314421)-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: black;
+    border: solid 5px #ffe6cc;
+}
+
+#pet-types-tile {
+    height: 225px;
+    background-image: url("../Images/dna-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: black;
+    border: solid 5px #ffd9b3;
+}
+
+#groups-tile {
+    height: 225px;
+    background-image: url("../Images/group-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border: solid 5px #ffcc99;
+}
+
+#groupIndex {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    background-color: white;
 }
 .tile-content{
-   position:absolute;
-   top:50%;
-   left:50%;
-   height:200px;
-   width:100%;
-   margin-top:-75px;
-   margin-left:-50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 100%;
+    margin-top: -75px;
+    margin-left: -50%;
 }
-#tasks-tile{
-   height:225px;
-   background-image:url("../Images/bowl-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:white;
-   border:solid 5px  #ffe6cc ;
+
+#tasks-tile, #pets-tile, #locations-tile, #task-types-tile, #pet-types-tile, #groups-tile {
+    margin-bottom: 15px;
 }
-#pets-tile{
-   height:225px;
-   background-image:url("../Images/petblur-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:white;
-   border:solid 5px #ffd9b3 ;
+
+#tasks-tile h2, #pets-tile h2, #locations-tile h2, #task-types-tile h2, #pet-types-tile h2, #groups-tile h2 {
+font-family: 'Yellowtail', cursive;
+font-size: 47px;
 }
-#locations-tile{
-   height:225px;
-   background-image:url("../Images/Doghouse-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:white;
-   border:solid 5px #ffcc99 ;
+
+#nav-tile {
+    margin: 0 auto;
 }
-#task-types-tile{
-   height:225px;
-   background-image:url("../Images/Pre_Trip_Checklist_(5161314421)-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:black;
-   border:solid 5px #ffe6cc ;
+
+#tasks-tile {
+    height: 225px;
+    background-image: url("../Images/bowl-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border:solid 5px  #ffe6cc ;
 }
-#pet-types-tile{
-   height:225px;
-   background-image:url("../Images/dna-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:black;
-   border:solid 5px #ffd9b3 ;
+
+#pets-tile {
+    height: 225px;
+    background-image: url("../Images/petblur-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border:solid 5px #ffd9b3 ;
 }
-#groups-tile{
-   height:225px;
-   background-image:url("../Images/group-min.jpg");
-   background-size:cover;
-   position:relative;
-   color:white;
-   border:solid 5px #ffcc99;
+
+#locations-tile {
+    height: 225px;
+    background-image: url("../Images/Doghouse-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border:solid 5px #ffcc99 ;
 }
-#groupIndex{
-    margin-bottom:15px;
-    padding-bottom:10px;
-    border-bottom:1px solid black;
-    font-size:15px;
-    background-color:white;
+
+#task-types-tile {
+    height: 225px;
+    background-image: url("../Images/Pre_Trip_Checklist_(5161314421)-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: black;
+    border:solid 5px #ffe6cc ;
 }
+
+#pet-types-tile {
+    height: 225px;
+    background-image: url("../Images/dna-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: black;
+    border:solid 5px #ffd9b3 ;
+}
+
+#groups-tile {
+    height: 225px;
+    background-image: url("../Images/group-min.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    border:solid 5px #ffcc99;
+}
+/*^^^^NAVGATION PAGE^^^^*/
+
+#groupIndex {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    background-color: white;
+    >>>>>>> Stashed changes;
+}
+
 #groupIndex p {
-    font-weight:bold;
+        font-weight: bold;
+        font-size: 25px;
+}
+
+#groupCon #userName {
+    font-weight: bold;
 }
 /*^^^^GROUP PAGE^^^^*/
-#locationIndex{
-    margin-bottom:15px;
-    padding-bottom:10px;
-    border-bottom:1px solid black;
-    font-size:15px;
-    background-color:white;
+#locationIndex {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    background-color: white;
 }
-#locationText{
-    font-weight:bold;
+
+#locationText, #locationDetText {
+    font-weight: bold;
 }
+
 /*^^^^LOCATION PAGE^^^^*/
 
-#petPicture{
-    max-width:95%;
-    max-height:300px;
+#petPicture {
+    max-width: 95%;
+    max-height: 300px;
 }
-#petContainer{
-    margin: 0 auto;
-    display:block;
+
+#petBoarder {
+    display: block;
+    height: 580px;
+    overflow: auto;
+    text-align: center;
+    padding: 25px;
+    margin: 5px auto 10px auto;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid gray;
+    word-wrap: break-word;
 }
-#petBoarder{
-    border:2px solid  #ffcc99;
-    height:550px;
-    overflow:auto;
-    text-align:center;
-    padding:25px;
-    margin:5px auto 0 auto;
-    font-size:16px;
-    background-color:white;
+
+#petName {
+    font-size: 20px;
 }
-#petName{
-    font-size:20px;
+
+#petDisplay {
+    font-weight: bold;
 }
-#petDisplay{
-    font-weight:bold;
-}
-hr{
+
+hr {
     display: block;
     margin: 0.5em auto 0.5em auto;
     border-style: inset;
@@ -262,34 +450,35 @@ hr{
 }
 /*^^^^PET VIEW^^^^*/
 
-#petType p{
-    font-weight:bold;
+#petType p {
+    font-weight: bold;
 }
-#petType{
-    background-color:white;
+
+#petType {
+    background-color: white;
 }
 /*^^^^PET TYPE^^^^*/
 
 /*^^^^FOOTER PAGE^^^^*/
 footer {
-    margin: 50px 0 0 0;
+    margin-top: 50px;
 }
-footer a:hover{
+
+/*Contact Page*/
+.contact-img {
+    width: 300px;
+}
+
+footer a:hover {
    text-decoration:none;
    color:#df5842 ;
 }
-/*Contact Page*/
-.contact-img{
-    width:300px;
-}
-
-
+/*^^^^FOOTER PAGE^^^^*/
 
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GENERATED CODE BELOW*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 body {
     padding-bottom: 20px;
-    /*CHANGED BG COLOR*/
-    background-color:#ffffcc;
+background-color:#ffffcc;
     font-family: 'Varela Round', sans-serif;
 }
 
