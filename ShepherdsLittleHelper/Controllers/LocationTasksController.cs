@@ -144,6 +144,7 @@ namespace ShepherdsLittleHelper.Controllers
                 IEnumerable<Location> locations = db.Locations.Where(l => groupIds.Contains(l.GroupID)).AsEnumerable();
                 ViewBag.LocationID = new SelectList(locations, "LocationID", "LocationName");
                 ViewBag.TaskTypeID = new SelectList(db.TaskTypes, "TaskID", "TaskTypeName", locationTask.TaskTypeID);
+                ViewBag.Deadline = locationTask.Deadline.Date;
                 return View(locationTask);
             }
             return RedirectToAction("/Index");

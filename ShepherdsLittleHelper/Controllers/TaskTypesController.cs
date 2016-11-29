@@ -90,7 +90,7 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(taskType);
+                return Redirect("/Home/Index");
             }
             return RedirectToAction("/Index");
         }
@@ -110,7 +110,7 @@ namespace ShepherdsLittleHelper.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                return View(taskType);
+                return Redirect("/Home/Index");
             }
             return RedirectToAction("/Index");
         }
@@ -129,7 +129,7 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(taskType);
+                return Redirect("/Home/Index");
             }
             return RedirectToAction("/Index");
         }
@@ -141,10 +141,7 @@ namespace ShepherdsLittleHelper.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                TaskType taskType = db.TaskTypes.Find(id);
-                db.TaskTypes.Remove(taskType);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Home/Index");
             }
             return RedirectToAction("/Index");
         }

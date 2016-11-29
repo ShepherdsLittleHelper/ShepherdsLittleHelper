@@ -52,8 +52,8 @@
             @Html.LabelFor(model => model.Deadline, "Deadline" ,htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*Calendar dropdown*@
-                <input type="datetime-local" name="Deadline" />
-                @*@Html.EditorFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*<input type="datetime-local" name="Deadline" />*@
+                @Html.EditorFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Deadline, "", new { @class = "text-danger" })
             </div>
         </div>

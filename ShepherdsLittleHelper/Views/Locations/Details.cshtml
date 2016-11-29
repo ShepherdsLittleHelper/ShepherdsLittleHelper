@@ -20,6 +20,9 @@
         </dd>*@
     <p><span id="locationDetText">@Html.DisplayNameFor(model => model.MaxOccupancy)</span>: @Html.DisplayFor(model => model.MaxOccupancy)</p>
 
+    <p><span id="locationDetText">Current Occupancy</span>: @ViewBag.currentOccupancy</p>
+
+
     <p><span id="locationDetText">@Html.DisplayNameFor(model => model.LocationNotes)</span>: @Html.DisplayFor(model => model.LocationNotes)</p>
 
     <h3>Pets in @Html.DisplayFor(model => model.LocationName)</h3>

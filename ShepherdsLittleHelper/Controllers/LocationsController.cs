@@ -43,7 +43,10 @@ namespace ShepherdsLittleHelper.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.pets = db.Pets.Where(p => p.LocationID == location.LocationID).AsEnumerable();
+                IEnumerable<Pet> pets = db.Pets.Where(p => p.LocationID == location.LocationID).AsEnumerable();
+                ViewBag.pets = pets;
+                ViewBag.currentOccupancy = pets.Count();
+                ViewBag.location = location;
                 return View(location);
             }
             return RedirectToAction("/Index");
