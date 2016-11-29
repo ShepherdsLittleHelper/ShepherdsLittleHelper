@@ -200,9 +200,26 @@ div.navbar.navbar-inverse {
 }
 
 .index-btns:hover {
-    background-color: #ffffcc;
-    border-color: #4d4d4d;
-
+        background-color: #ffffcc;
+        border-color: #4d4d4d;
+}
+#learn-btn{
+    position:relative;
+    left:10%;
+    border-radius:15px;
+    background-color:#ccccff;
+    border:0px;
+}
+#learn-btn:hover{
+    background-color:#ffffb3;
+}
+.index-btns{
+    border-radius:15px;
+    background-color:#ccccff;
+    border:0px;
+}
+.index-btns:hover{
+    background-color:#ffffb3;
 }
 
 /*^^^^ABOUT PAGE^^^^*/
@@ -387,11 +404,11 @@ font-size: 47px;
 /*^^^^NAVGATION PAGE^^^^*/
 
 #groupIndex {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    font-size: 15px;
-    background-color: white;
-    >>>>>>> Stashed changes;
+    margin-bottom:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid black;
+    font-size:15px;
+    background-color:white;
 }
 
 #groupIndex p {
@@ -478,7 +495,7 @@ footer a:hover {
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GENERATED CODE BELOW*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 body {
     padding-bottom: 20px;
-background-color:#ffffcc;
+    background-color:#ffffcc;
     font-family: 'Varela Round', sans-serif;
 }
 
