@@ -326,7 +326,7 @@ div.navbar.navbar-inverse {
 }
 
 #tasks-tile, #pets-tile, #locations-tile, #task-types-tile, #pet-types-tile, #groups-tile {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 #tasks-tile h2, #pets-tile h2, #locations-tile h2, #task-types-tile h2, #pet-types-tile h2, #groups-tile h2 {
